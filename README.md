@@ -112,7 +112,7 @@ With that in mind, it's worth looking at two methods in the helper classes in a 
 
 We'd love to get your feedback about the Microsoft Graph Connect Sample for Xamarin Forms project. You can send your questions and suggestions to us in the [Issues](https://github.com/MicrosoftGraph/xamarin-csharp-connect-sample/issues) section of this repository.
 
-Your feedback is important to us. Connect with us on [Stack Overflow](http://stackoverflow.com/questions/tagged/office365+or+microsoftgraph). Tag your questions with [MicrosoftGraph] and [office365].
+Your feedback is important to us. Connect with us on [Stack Overflow](http://stackoverflow.com/questions/tagged/office365+or+microsoftgraph). Tag your questions with [MicrosoftGraph].
 
 <a name="additional-resources"></a>
 ## Additional resources ##
