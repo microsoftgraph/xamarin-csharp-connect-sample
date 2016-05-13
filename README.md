@@ -68,7 +68,7 @@ You can use the [Visual Studio Emulator for Android](https://www.visualstudio.co
 2. After you've loaded the solution in Visual Studio, configure the sample to use the client id that you registered by making this the value of the **ClientId** variable in the App.cs file.
 
 
-![](/readme-images/appId.png "Client ID value in App.cs file")
+    ![](/readme-images/appId.png "Client ID value in App.cs file")
 
 3. Select the project that you want to run. If you select the Universal Windows Platform option, you can run the sample on the local machine. If you want to run the iOS project, you'll need to connect to a [Mac that has the Xamarin tools](https://developer.xamarin.com/guides/ios/getting_started/installation/windows/connecting-to-mac/) installed on it. (You can also open this solution in Xamarin Studio on a Mac and run the sample directly from there.) You can use the [Visual Studio Emulator for Android](https://www.visualstudio.com/features/msft-android-emulator-vs.aspx) if you want to run the Android project. 
 
