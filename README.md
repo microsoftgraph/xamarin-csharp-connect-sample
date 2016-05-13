@@ -1,6 +1,6 @@
 # Microsoft Graph Connect Sample for Xamarin Forms
 
-**Table of contents**
+##Table of contents
 
 * [Introduction](#introduction)
 * [Prerequisites](#prerequisites)
@@ -14,7 +14,7 @@
 
 This sample shows how to connect a Xamarin Forms app to a Microsoft work or school (Azure Active Directory) or personal (Microsoft) account using the Microsoft Graph API to send an email. It uses the [Microsoft Graph .NET Client SDK](https://github.com/microsoftgraph/msgraph-sdk-dotnet) to work with data returned by Microsoft Graph.
 
-In addition, the sample uses the [Microsoft Authentication Library (MSAL)](https://www.nuget.org/packages/Microsoft.Identity.Client/) for authentication. The MSAL SDK provides features for working with the [v2 authentication endpoint](https://msdn.microsoft.com/en-us/office/office365/howto/authenticate-Office-365-APIs-using-v2), which enables developers to write a single code flow that handles authentication for both users' work or school and personal accounts.
+In addition, the sample uses the [Microsoft Authentication Library (MSAL)](https://www.nuget.org/packages/Microsoft.Identity.Client/) for authentication. The MSAL SDK provides features for working with the [v2 authentication endpoint](https://msdn.microsoft.com/office/office365/howto/authenticate-Office-365-APIs-using-v2), which enables developers to write a single code flow that handles authentication for both users' work or school and personal accounts.
 
  > **Note** The MSAL SDK is currently in prerelease, and as such should not be used in production code. It is used here for illustrative purposes only.
 
@@ -24,10 +24,10 @@ In addition, the sample uses the [Microsoft Authentication Library (MSAL)](https
 
 This sample requires the following:  
 
-  * [Visual Studio 2015](https://www.visualstudio.com/en-us/downloads) 
+  * [Visual Studio 2015](https://www.visualstudio.com/downloads) 
   * [Xamarin for Visual Studio](https://www.xamarin.com/visual-studio)
   * Windows 10 ([development mode enabled](https://msdn.microsoft.com/library/windows/apps/xaml/dn706236.aspx))
-  * Either a [Microsoft](www.outlook.com) or [Office 365 for business account](https://msdn.microsoft.com/en-us/office/office365/howto/setup-development-environment#bk_Office365Account)
+  * Either a [Microsoft](https://www.outlook.com) or [Office 365 for business account](https://msdn.microsoft.com/office/office365/howto/setup-development-environment#bk_Office365Account)
 
 If you want to run the iOS project in this sample, you'll need the following:
 
@@ -37,7 +37,7 @@ If you want to run the iOS project in this sample, you'll need the following:
   * [Xamarin.iOS](https://developer.xamarin.com/guides/ios/getting_started/installation/mac/)
   * A [Xamarin Mac agent connected to Visual Studio](https://developer.xamarin.com/guides/ios/getting_started/installation/windows/connecting-to-mac/)
 
-You can use the [Visual Studio Emulator for Android](https://www.visualstudio.com/en-us/features/msft-android-emulator-vs.aspx) if you want to run the Android project.
+You can use the [Visual Studio Emulator for Android](https://www.visualstudio.com/features/msft-android-emulator-vs.aspx) if you want to run the Android project.
 
 <a name="register"></a>
 ##Register and configure the app
@@ -65,11 +65,12 @@ You can use the [Visual Studio Emulator for Android](https://www.visualstudio.co
 
     ![](/readme-images/Appdotcs.png "Open App.cs file in XamarinConnect project")
 
-2. After you've loaded the solution in Visual Studio, configure the sample to use the client id that you registe
-3. red by making this the value of the **ClientId** variable in the App.cs file.
+2. After you've loaded the solution in Visual Studio, configure the sample to use the client id that you registered by making this the value of the **ClientId** variable in the App.cs file.
+
+
 ![](/readme-images/appId.png "Client ID value in App.cs file")
 
-4. Select the project that you want to run. If you select the Universal Windows Platform option, you can run the sample on the local machine. If you want to run the iOS project, you'll need to connect to a [Mac that has the Xamarin tools](https://developer.xamarin.com/guides/ios/getting_started/installation/windows/connecting-to-mac/) installed on it. (You can also open this solution in Xamarin Studio on a Mac and run the sample directly from there.) You can use the [Visual Studio Emulator for Android](https://www.visualstudio.com/en-us/features/msft-android-emulator-vs.aspx) if you want to run the Android project. 
+3. Select the project that you want to run. If you select the Universal Windows Platform option, you can run the sample on the local machine. If you want to run the iOS project, you'll need to connect to a [Mac that has the Xamarin tools](https://developer.xamarin.com/guides/ios/getting_started/installation/windows/connecting-to-mac/) installed on it. (You can also open this solution in Xamarin Studio on a Mac and run the sample directly from there.) You can use the [Visual Studio Emulator for Android](https://www.visualstudio.com/features/msft-android-emulator-vs.aspx) if you want to run the Android project. 
 
     ![](/readme-images/SelectProject.png "Select project in Visual Studio")
 
@@ -78,7 +79,7 @@ You can use the [Visual Studio Emulator for Android](https://www.visualstudio.co
 
 | UWP | Android | iOS |
 | --- | ------- | ----|
-| ![](/readme-images/UWP.png "Connect sample on UWP" ) | ![](/readme-images/Droid.png "Connect sample on Android") | ![](/readme-images/iOS.png "Connect sample on iOS") |
+| <img src="/readme-images/UWP.png" alt="Connect sample on UWP" width="100%" /> | <img src="/readme-images/Droid.png" alt="Connect sample on Android" width="100%" /> | <img src="/readme-images/iOS.png" alt="Connect sample on iOS" width="100%" /> |
 
 ###Summary of key methods
 
