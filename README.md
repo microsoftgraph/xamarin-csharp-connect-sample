@@ -16,6 +16,8 @@ This sample shows how to connect a Xamarin Forms app to a Microsoft work or scho
 
 In addition, the sample uses the [Microsoft Authentication Library (MSAL)](https://www.nuget.org/packages/Microsoft.Identity.Client/) for authentication. The MSAL SDK provides features for working with the [v2 authentication endpoint](https://msdn.microsoft.com/office/office365/howto/authenticate-Office-365-APIs-using-v2), which enables developers to write a single code flow that handles authentication for both users' work or school and personal accounts.
 
+If you'd like to work with MSAL in a Xamarin Forms app of your own, follow [these instructions for setting up a Xamarin Forms project with MSAL](https://github.com/microsoftgraph/xamarin-csharp-connect-sample/wiki/Set-up-a-Xamarin-Forms-project-to-use-the-MSAL-.NET-SDK).
+
  > **Note** The MSAL SDK is currently in prerelease, and as such should not be used in production code. It is used here for illustrative purposes only.
 
 
