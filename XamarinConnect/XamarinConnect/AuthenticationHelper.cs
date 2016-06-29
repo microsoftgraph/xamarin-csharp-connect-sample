@@ -10,7 +10,7 @@ using Microsoft.Identity.Client;
 
 namespace XamarinConnect
 {
-    class AuthenticationHelper
+    public class AuthenticationHelper
     {
 
         public static string TokenForUser = null;

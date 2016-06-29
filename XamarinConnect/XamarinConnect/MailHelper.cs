@@ -10,7 +10,7 @@ using Microsoft.Graph;
 
 namespace XamarinConnect
 {
-    class MailHelper
+    public class MailHelper
     {
         /// <summary>
         /// Compose and send a new email.
@@ -19,7 +19,7 @@ namespace XamarinConnect
         /// <param name="bodyContent">The body of the email.</param>
         /// <param name="recipients">A semicolon-separated list of email addresses.</param>
         /// <returns></returns>
-        internal async Task ComposeAndSendMailAsync(string subject,
+        public async Task ComposeAndSendMailAsync(string subject,
                                                             string bodyContent,
                                                             string recipients)
         {
