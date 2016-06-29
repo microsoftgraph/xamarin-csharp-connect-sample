@@ -79,7 +79,7 @@ namespace ConnectUnitTests
             bool isComplete = false;
             try
             {
-                Task mailTask = mailHelper.ComposeAndSendMailAsync("Message from the unit test", "Hello from the unit test", "admin@mod182601.onmicrosoft.com");
+                Task mailTask = mailHelper.ComposeAndSendMailAsync("Email sent from test in xamarin connect sample", "<html><body>The body of the test email</body ></html>", "admin@mod182601.onmicrosoft.com");
                 mailTask.Wait();
                 isComplete = mailTask.IsCompleted;
 
