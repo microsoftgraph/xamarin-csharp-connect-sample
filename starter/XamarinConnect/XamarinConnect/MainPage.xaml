@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright (c) Microsoft. All rights reserved. Licensed under the MIT license.
+See LICENSE in the project root for license information. -->
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:local="clr-namespace:XamarinConnect;assembly=XamarinConnect"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XamarinConnect.MainPage">
+  <ContentPage.Content>
+    <StackLayout Padding="10,10,10,25">
+      <Label Text="Microsoft Graph Connect Sample" FontSize="Medium" VerticalOptions="Start" HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand" />
+      <StackLayout Orientation="Vertical" Padding="5,10" VerticalOptions="CenterAndExpand">
+        <Label HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand" x:Name="InfoText" />
+        <Entry x:Name="EmailAddressBox" IsVisible="False"/>
+        <Button HorizontalOptions="Center" IsVisible="False" x:Name="MailButton" Text="send mail" Clicked="MailButton_Click" />
+      </StackLayout>
+      <Button x:Name="SignInSignOutBtn" Clicked="OnSignInSignOut" VerticalOptions="End" HorizontalOptions="Center"/>
+    </StackLayout>
+  </ContentPage.Content>
+
+</ContentPage>
