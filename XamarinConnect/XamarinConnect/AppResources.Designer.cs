@@ -87,10 +87,11 @@ namespace XamarinConnect {
         ///&lt;/head&gt;
         ///&lt;body style=&apos;font-family:calibri&apos;&gt;
         ///&lt;h2&gt;Hello, {0}!&lt;/h2&gt;
-        ///&lt;p&gt;This is a message from the Microsoft Graph Connect sample. You are well on your way to incorporating Office 365 and Outlook.com capabilities into your Xamarin apps through the Microsoft Graph.
+        ///&lt;p&gt;This is a message from the Microsoft Graph Connect sample. You are well on your way to incorporating Microsoft Graph capabilities into your Xamarin apps.
         ///&lt;/p&gt;
-        ///&lt;p&gt;What&amp;#8217;s next?&lt;/p&gt;
-        ///&lt;p&gt;You can use the classes in the Visual Studio project to integrate Office 365 and Outlook.com capabilities [rest of string was truncated]&quot;;.
+        ///&lt;h3&gt;What&amp;#8217;s next?&lt;/h3&gt;
+        ///&lt;ul&gt;
+        ///	&lt;li&gt;Check out &lt;a href=&apos;http://graph.microsoft.io/&apos;&gt;graph.microsoft.io&lt;/a&gt; to start building Microsoft Graph apps today with all the latest [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string MailContents {
             get {
