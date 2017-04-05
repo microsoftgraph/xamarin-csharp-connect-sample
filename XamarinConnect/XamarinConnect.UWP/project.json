@@ -1,8 +1,8 @@
 ﻿{
   "dependencies": {
     "Microsoft.Identity.Client": "1.0.304142221-alpha",
-    "Microsoft.NETCore.UniversalWindowsPlatform": "5.0.0",
-    "Xamarin.Forms": "2.0.0.6482"
+    "Microsoft.NETCore.UniversalWindowsPlatform": "5.3.1",
+    "Xamarin.Forms": "2.3.4.224"
   },
   "frameworks": {
     "uap10.0": {}
