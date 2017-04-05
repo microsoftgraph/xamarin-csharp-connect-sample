@@ -78,7 +78,7 @@ namespace XamarinConnect
             try
             {
 
-                await _mailHelper.ComposeAndSendMailAsync(AppResources.MailSubject, ComposePersonalizedMail(), mailAddress);
+                await _mailHelper.ComposeAndSendMailAsync(AppResources.MailSubject, AppResources.MailContents, mailAddress);
                 InfoText.Text = string.Format(AppResources.SendMailSuccess, mailAddress);
 
             }
@@ -90,14 +90,6 @@ namespace XamarinConnect
             }
 
 
-        }
-
-        // <summary>
-        // Personalizes the email.
-        // </summary>
-        public static string ComposePersonalizedMail()
-        {
-            return String.Format(AppResources.MailContents, App.Username);
         }
 
     }
