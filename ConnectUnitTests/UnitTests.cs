@@ -25,16 +25,6 @@ namespace ConnectUnitTests
         private static string ResourceId = "https%3A%2F%2Fgraph.microsoft.com%2F";
 
         [TestMethod]
-        public void TestComposePersonalizedMail()
-        {
-            App.Username = "MOD Administrator";
-            var testMessage = MainPage.ComposePersonalizedMail();
-            StringAssert.Contains(testMessage, "Hello, MOD Administrator!");
-
-        }
-
-
-        [TestMethod]
         public void getAccessTokenUsingPasswordGrant()
         {
             JObject jResult = null;
