@@ -28,5 +28,26 @@ namespace XamarinConnect
 
         }
 
+
+        // Gets the stream content of the signed-in user's photo. 
+        // This snippet doesn't work with consumer accounts.
+        public async Task<Stream> GetCurrentUserPhotoStreamAsync()
+        {
+
+
+        }
+
+        // Uploads the specified file to the user's root OneDrive directory.
+        public async Task<DriveItem> UploadFileToOneDrive(byte[] file)
+        {
+
+        }
+
+        public static async Task<Permission> GetSharingLinkAsync(string Id)
+        {
+
+        }
+
+
     }
 }
