@@ -42,7 +42,7 @@ namespace XamarinConnect
             // Copy stream to MemoryStream object so that it can be converted to byte array.
             photoStream.CopyTo(photoStreamMS);
 
-            DriveItem photoFile = await UploadFileToOneDrive(photoStreamMS.ToArray());
+            DriveItem photoFile = await UploadFileToOneDriveAsync(photoStreamMS.ToArray());
 
             MessageAttachmentsCollectionPage attachments = new MessageAttachmentsCollectionPage();
             attachments.Add(new FileAttachment
@@ -126,7 +126,7 @@ namespace XamarinConnect
         }
 
         // Uploads the specified file to the user's root OneDrive directory.
-        public async Task<DriveItem> UploadFileToOneDrive(byte[] file)
+        public async Task<DriveItem> UploadFileToOneDriveAsync(byte[] file)
         {
             DriveItem uploadedFile = null;
 
