@@ -3,7 +3,9 @@
 
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Graph;
@@ -25,6 +27,27 @@ namespace XamarinConnect
         {
 
         }
+
+
+        // Gets the stream content of the signed-in user's photo. 
+        // This snippet doesn't work with consumer accounts.
+        public async Task<Stream> GetCurrentUserPhotoStreamAsync()
+        {
+
+
+        }
+
+        // Uploads the specified file to the user's root OneDrive directory.
+        public async Task<DriveItem> UploadFileToOneDrive(byte[] file)
+        {
+
+        }
+
+        public static async Task<Permission> GetSharingLinkAsync(string Id)
+        {
+
+        }
+
 
     }
 }

@@ -15,7 +15,7 @@ namespace XamarinConnect
     {
         public static PublicClientApplication IdentityClientApp = null;
         public static string ClientID = "ENTER_YOUR_CLIENT_ID";
-        public static string[] Scopes = { "User.Read", "Mail.Send" };
+        public static string[] Scopes = { "User.Read", "Mail.Send", "Files.ReadWrite" };
         public static string Username = string.Empty;
         public static string UserEmail = string.Empty;
         public App()
