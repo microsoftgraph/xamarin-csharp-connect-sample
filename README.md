@@ -1,6 +1,6 @@
 # Microsoft Graph Connect Sample for Xamarin Forms
 
-##Table of contents
+## Table of contents
 
 * [Introduction](#introduction)
 * [Prerequisites](#prerequisites)
@@ -10,7 +10,7 @@
 * [Additional resources](#additional-resources)
 
 <a name="introduction"></a>
-##Introduction
+## Introduction
 
 This sample shows how to connect a Xamarin Forms app to a Microsoft work or school (Azure Active Directory) or personal (Microsoft) account using the Microsoft Graph API to retrieve a user's profile picture, upload the picture to OneDrive, and send an email that contains the photo as an attachment and the sharing link in its text. It uses the [Microsoft Graph .NET Client SDK](https://github.com/microsoftgraph/msgraph-sdk-dotnet) to work with data returned by Microsoft Graph.
 
