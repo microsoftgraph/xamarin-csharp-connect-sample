@@ -21,7 +21,29 @@ namespace XamarinConnect
         // acquire the token silently. If that fails, then we try to acquire the token by prompting the user.
         public static GraphServiceClient GetAuthenticatedClient()
         {
+            if (graphClient == null)
+            {
+                // Create Microsoft Graph client.
+                try
+                {
+                    graphClient = new GraphServiceClient(
+                        "https://graph.microsoft.com/v1.0",
+                        new DelegateAuthenticationProvider(
+                            async (requestMessage) =>
+                            {
+                                var token = await GetTokenForUserAsync();
+                                requestMessage.Headers.Authorization = new AuthenticationHeaderValue("bearer", token);
+                            }));
+                    return graphClient;
+                }
 
+                catch (Exception ex)
+                {
+                    Debug.WriteLine("Could not create a graph client: " + ex.Message);
+                }
+            }
+
+            return graphClient;
         }
 
 
@@ -31,7 +53,15 @@ namespace XamarinConnect
         /// <returns>Token for user.</returns>
         public static async Task<string> GetTokenForUserAsync()
         {
+            if (TokenForUser == null || expiration <= DateTimeOffset.UtcNow.AddMinutes(5))
+            {
+                AuthenticationResult authResult = await App.IdentityClientApp.AcquireTokenAsync(App.Scopes);
 
+                TokenForUser = authResult.Token;
+                expiration = authResult.ExpiresOn;
+            }
+
+            return TokenForUser;
         }
 
 
@@ -40,7 +70,12 @@ namespace XamarinConnect
         /// </summary>
         public static void SignOut()
         {
-
+            foreach (var user in App.IdentityClientApp.Users)
+            {
+                user.SignOut();
+            }
+            graphClient = null;
+            TokenForUser = null;
 
         }
 
