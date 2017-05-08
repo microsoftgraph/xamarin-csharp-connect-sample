@@ -51,7 +51,7 @@ You can use the [Visual Studio Emulator for Android](https://www.visualstudio.co
 	The registration page displays, listing the properties of your app.
  
 4. Under **Platforms**, select **Add platform**.
-5. Select **Mobile application**.
+5. Select **Native Application**.
 6. Copy the Client Id (App Id) value to the clipboard. You'll need to enter these values into the sample app.
 
 	The app id is a unique identifier for your app.
