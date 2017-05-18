@@ -47,13 +47,13 @@ You can use the [Visual Studio Emulator for Android](https://www.visualstudio.co
 
 1. Sign into the [App Registration Portal](https://apps.dev.microsoft.com/) using either your personal or work or school account.
 2. Select **Add an app**.
-3. Enter a name for the app, and select **Create application**.
+3. Enter a name for the app, and select **Create**.
 	
 	The registration page displays, listing the properties of your app.
  
 4. Under **Platforms**, select **Add platform**.
 5. Select **Native Application**.
-6. Copy the Client Id (App Id) value to the clipboard. You'll need to enter these values into the sample app.
+6. Copy the Application Id value and the Custom Redirect URI value (under the **Native Application** header) that was created for you when you added the **Native Application** platform. This URI should contain your Application Id value and be in this form: `msal<Application Id>://auth` You'll need to enter these values into the sample app.
 
 	The app id is a unique identifier for your app.
 
@@ -62,7 +62,7 @@ You can use the [Visual Studio Emulator for Android](https://www.visualstudio.co
 <a name="build"></a>
 ## Build and debug ##
 
-**Note:** If you see any errors while installing packages during step 2, make sure the local path where you placed the solution is not too long/deep. Moving the solution closer to the root of your drive resolves this issue.
+**Note:** If you see any errors while installing packages during step 12, make sure the local path where you placed the solution is not too long/deep. Moving the solution closer to the root of your drive resolves this issue.
 
 1. Open the App.cs file inside the **XamarinConnect (Portable)** project of the solution.
 
@@ -73,11 +73,27 @@ You can use the [Visual Studio Emulator for Android](https://www.visualstudio.co
 
     ![](/readme-images/appId.png "Client ID value in App.cs file")
 
-3. Select the project that you want to run. If you select the Universal Windows Platform option, you can run the sample on the local machine. If you want to run the iOS project, you'll need to connect to a [Mac that has the Xamarin tools](https://developer.xamarin.com/guides/ios/getting_started/installation/windows/connecting-to-mac/) installed on it. (You can also open this solution in Xamarin Studio on a Mac and run the sample directly from there.) You can use the [Visual Studio Emulator for Android](https://www.visualstudio.com/features/msft-android-emulator-vs.aspx) if you want to run the Android project. 
+3. Open the UserDetailsClient.iOS\AppDelegate.cs file. Locate the `ENTER_YOUR_REDIRECT_URI` string.
+
+4. Make the redirect URI value that you got when you registered the app the value of `App.IdentityClientApp.RedirectUri` (by replacing the `ENTER_YOUR_REDIRECT_URI` string).
+
+5. Open the UserDetailsClient.iOS\info.plist file in a text editor. Unfortunately you can't edit this file in Visual Studio. Locate the `<string>msalENTER_YOUR_CLIENT_ID</string>` element under `CFBundleURLSchemes` key.
+
+6. Replace `ENTER_YOUR_CLIENT_ID` with the application id value that you got when you registered your app. Be sure to retain `msal` before the application id. The resulting string value should look like this: `<string>msal<application id></string>`.
+
+7. Open the UserDetailsClient.Droid\MainActivity.cs file. Locate the `ENTER_YOUR_REDIRECT_URI` string.
+
+8. Make the URI value that you got when you registered the app the value of `App.IdentityClientApp.RedirectUri` (by replacing the `ENTER_YOUR_REDIRECT_URI` string).
+
+9. Open the UserDetailsClient.Droid\Properties\AndroidManifest.xml file. Locate this element: `<data android:scheme="msalENTER_YOUR_CLIENT_ID" android:host="auth" />`.
+
+10. Replace `ENTER_YOUR_CLIENT_ID` with the application id value that you got when you registered your app. Be sure to retain `msal` before the application id. The resulting string value should look like this: `<data android:scheme="msal<application id>" android:host="auth" />`.
+
+11. Select the project that you want to run. If you select the Universal Windows Platform option, you can run the sample on the local machine. If you want to run the iOS project, you'll need to connect to a [Mac that has the Xamarin tools](https://developer.xamarin.com/guides/ios/getting_started/installation/windows/connecting-to-mac/) installed on it. (You can also open this solution in Xamarin Studio on a Mac and run the sample directly from there.) You can use the [Visual Studio Emulator for Android](https://www.visualstudio.com/features/msft-android-emulator-vs.aspx) if you want to run the Android project. 
 
     ![](/readme-images/SelectProject.png "Select project in Visual Studio")
 
-4. Press F5 to build and debug. Run the solution and sign in with either your personal or work or school account.
+12. Press F5 to build and debug. Run the solution and sign in with either your personal or work or school account.
     > **Note** You might have to open the Build Configuration Manager to make sure that the Build and Deploy steps are selected for the UWP project.
 
 | UWP | Android | iOS |
