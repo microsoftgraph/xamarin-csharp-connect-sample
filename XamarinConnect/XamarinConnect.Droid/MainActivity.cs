@@ -20,12 +20,14 @@ namespace XamarinConnect.Droid
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
             LoadApplication(new App());
+            App.IdentityClientApp.RedirectUri = "ENTER_YOUR_REDIRECT_URI";
+            App.UiParent = new UIParent(Xamarin.Forms.Forms.Context as Activity);
         }
 
         protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
         {
             base.OnActivityResult(requestCode, resultCode, data);
-            AuthenticationAgentContinuationHelper.SetAuthenticationAgentContinuationEventArgs(requestCode, resultCode, data);
+            AuthenticationContinuationHelper.SetAuthenticationContinuationEventArgs(requestCode, resultCode, data);
         }
     }
 }

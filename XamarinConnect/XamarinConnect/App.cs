@@ -18,6 +18,8 @@ namespace XamarinConnect
         public static string[] Scopes = { "User.Read", "Mail.Send", "Files.ReadWrite" };
         public static string Username = string.Empty;
         public static string UserEmail = string.Empty;
+
+        public static UIParent UiParent = null;
         public App()
         {
             IdentityClientApp = new PublicClientApplication(ClientID);
