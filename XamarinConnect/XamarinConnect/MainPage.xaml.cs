@@ -18,7 +18,6 @@ namespace XamarinConnect
 {
     public partial class MainPage : ContentPage
     {
-        public IPlatformParameters platformParameters { get; set; }
         private static GraphServiceClient graphClient = null;
         private MailHelper _mailHelper = new MailHelper();
 
@@ -28,7 +27,6 @@ namespace XamarinConnect
         }
         protected override void OnAppearing()
         {
-            App.IdentityClientApp.PlatformParameters = platformParameters;
             SignInSignOutBtn.Text = "connect";
 
             // Developer code - if you haven't registered the app yet, we warn you. 
