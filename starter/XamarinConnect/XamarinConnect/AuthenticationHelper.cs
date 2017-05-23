@@ -55,9 +55,9 @@ namespace XamarinConnect
         {
             if (TokenForUser == null || expiration <= DateTimeOffset.UtcNow.AddMinutes(5))
             {
-                AuthenticationResult authResult = await App.IdentityClientApp.AcquireTokenAsync(App.Scopes);
+                AuthenticationResult authResult = await App.IdentityClientApp.AcquireTokenAsync(App.Scopes, App.UiParent);
 
-                TokenForUser = authResult.Token;
+                TokenForUser = authResult.AccessToken;
                 expiration = authResult.ExpiresOn;
             }
 
@@ -72,7 +72,7 @@ namespace XamarinConnect
         {
             foreach (var user in App.IdentityClientApp.Users)
             {
-                user.SignOut();
+                App.IdentityClientApp.Remove(user);
             }
             graphClient = null;
             TokenForUser = null;

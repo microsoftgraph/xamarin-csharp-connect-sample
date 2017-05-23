@@ -4,6 +4,7 @@ using System.Linq;
 
 using Foundation;
 using UIKit;
+using Microsoft.Identity.Client;
 
 namespace XamarinConnect.iOS
 {
@@ -25,7 +26,14 @@ namespace XamarinConnect.iOS
             global::Xamarin.Forms.Forms.Init();
             LoadApplication(new App());
 
+            App.IdentityClientApp.RedirectUri = "ENTER_YOUR_REDIRECT_URI";
             return base.FinishedLaunching(app, options);
+        }
+
+        public override bool OpenUrl(UIApplication app, NSUrl url, NSDictionary options)
+        {
+            AuthenticationContinuationHelper.SetAuthenticationContinuationEventArgs(url);
+            return true;
         }
     }
 }
