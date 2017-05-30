@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25123.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.4
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XamarinConnect.Droid", "XamarinConnect\XamarinConnect.Droid\XamarinConnect.Droid.csproj", "{95965811-FBC3-495D-AFC1-B476F5A9BE71}"
 EndProject
@@ -180,6 +180,8 @@ Global
 		{E7207B52-B6A8-4760-99B7-BD582ABD5B0E}.AppStore|x86.Build.0 = Release|x86
 		{E7207B52-B6A8-4760-99B7-BD582ABD5B0E}.AppStore|x86.Deploy.0 = Release|x86
 		{E7207B52-B6A8-4760-99B7-BD582ABD5B0E}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{E7207B52-B6A8-4760-99B7-BD582ABD5B0E}.Debug|Any CPU.Build.0 = Debug|x86
+		{E7207B52-B6A8-4760-99B7-BD582ABD5B0E}.Debug|Any CPU.Deploy.0 = Debug|x86
 		{E7207B52-B6A8-4760-99B7-BD582ABD5B0E}.Debug|ARM.ActiveCfg = Debug|ARM
 		{E7207B52-B6A8-4760-99B7-BD582ABD5B0E}.Debug|ARM.Build.0 = Debug|ARM
 		{E7207B52-B6A8-4760-99B7-BD582ABD5B0E}.Debug|ARM.Deploy.0 = Debug|ARM
