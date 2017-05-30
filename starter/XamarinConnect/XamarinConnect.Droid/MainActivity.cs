@@ -20,7 +20,7 @@ namespace XamarinConnect.Droid
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
             LoadApplication(new App());
-            App.IdentityClientApp.RedirectUri = "ENTER_YOUR_REDIRECT_URI";
+            App.IdentityClientApp.RedirectUri = App.RedirectUri;
             App.UiParent = new UIParent(Xamarin.Forms.Forms.Context as Activity);
         }
 
