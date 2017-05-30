@@ -25,7 +25,7 @@ namespace XamarinConnect.iOS
         {
             global::Xamarin.Forms.Forms.Init();
             LoadApplication(new App());
-            App.IdentityClientApp.RedirectUri = "ENTER_YOUR_REDIRECT_URI";
+            App.IdentityClientApp.RedirectUri = App.RedirectUri;
             return base.FinishedLaunching(app, options);
 
         }
