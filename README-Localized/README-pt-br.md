@@ -1,6 +1,6 @@
 # <a name="microsoft-graph-connect-sample-for-xamarin-forms"></a>Exemplo de Conexão do Microsoft Graph para Xamarin Forms
 
-##<a name="table-of-contents"></a>Sumário
+## <a name="table-of-contents"></a>Sumário
 
 * [Introdução](#introduction)
 * [Pré-requisitos](#prerequisites)
@@ -10,16 +10,17 @@
 * [Recursos adicionais](#additional-resources)
 
 <a name="introduction"></a>
-##<a name="introduction"></a>Introdução
+## <a name="introduction"></a>Introdução
 
-Este exemplo mostra como conectar um aplicativo do Xamarin Forms a uma conta comercial ou escolar (Azure Active Directory) da Microsoft ou uma conta pessoal (Microsoft) usando a API do Microsoft Graph API para enviar emails. O exemplo usa o [SDK de Cliente do Microsoft Graph .NET](https://github.com/microsoftgraph/msgraph-sdk-dotnet) para trabalhar com dados retornados pelo Microsoft Graph.
+Este exemplo mostra como conectar um aplicativo Xamarin Forms a uma conta corporativa ou de estudante (Azure Active Directory) da Microsoft ou a uma conta pessoal (Microsoft) usando a API do Microsoft Graph para recuperar a imagem de perfil de um usuário, carregar a imagem para o OneDrive e enviar um email que contém a foto como anexo e o link de compartilhamento em seu texto. O exemplo usa o [SDK de Cliente .NET do Microsoft Graph](https://github.com/microsoftgraph/msgraph-sdk-dotnet) para trabalhar com dados retornados pelo Microsoft Graph.
 
 Além disso, o exemplo usa a [Biblioteca de Autenticação da Microsoft (MSAL)](https://www.nuget.org/packages/Microsoft.Identity.Client/) para autenticação. O SDK da MSAL fornece recursos para trabalhar com o [ponto de extremidade do Microsoft Azure AD versão 2.0](https://msdn.microsoft.com/office/office365/howto/authenticate-Office-365-APIs-using-v2), que permite aos desenvolvedores gravar um único fluxo de código para tratar da autenticação de contas pessoais, corporativas ou de estudantes.
 
 Se deseja trabalhar com a MSAL em seu próprio aplicativo do Xamarin Forms, siga [estas instruções para configurar um projeto do Xamarin Forms com a MSAL](https://github.com/microsoftgraph/xamarin-csharp-connect-sample/wiki/Set-up-a-Xamarin-Forms-project-to-use-the-MSAL-.NET-SDK).
 
- > **Observação** No momento, o SDK da MSAL encontra-se em pré-lançamento e como tal não deve ser usado no código de produção. Isso é usado apenas para fins ilustrativos
+## <a name="important-note-about-the-msal-preview"></a>Observação importante sobre a Visualização da MSAL
 
+Esta biblioteca é adequada para uso em um ambiente de produção. Ela recebe o mesmo suporte de nível de produção que fornecemos às nossas bibliotecas de produção atuais. Durante a visualização, podemos fazer alterações na API, no formato de cache interno e em outros mecanismos desta biblioteca, que você será solicitado a implementar juntamente com correções de bugs ou melhorias de recursos. Isso pode impactar seu aplicativo. Por exemplo, uma alteração no formato de cache pode impactar seus usuários, exigindo que eles entrem novamente. Uma alteração na API pode requerer que você atualize seu código. Quando fornecermos a versão de Disponibilidade Geral, você será solicitado a atualizar a versão de Disponibilidade Geral no prazo de seis meses, pois os aplicativos escritos usando uma versão de visualização da biblioteca podem não funcionar mais.
 
 <a name="prerequisites"></a>
 ## <a name="prerequisites"></a>Pré-requisitos ##
@@ -42,26 +43,26 @@ Se quiser executar o projeto do iOS neste exemplo, você precisará do seguinte:
 Você pode usar o [Emulador do Visual Studio para Android](https://www.visualstudio.com/features/msft-android-emulator-vs.aspx) se quiser executar o projeto do Android.
 
 <a name="register"></a>
-##<a name="register-and-configure-the-app"></a>Registrar e configurar o aplicativo
+## <a name="register-and-configure-the-app"></a>Registrar e configurar o aplicativo
 
 1. Entre no [Portal de Registro do Aplicativo](https://apps.dev.microsoft.com/) usando sua conta pessoal ou sua conta comercial ou escolar.
 2. Selecione **Adicionar um aplicativo**.
-3. Insira um nome para o aplicativo e selecione **Criar aplicativo**.
+3. Insira um nome para o aplicativo e selecione **Criar**.
     
     A página de registro é exibida, listando as propriedades do seu aplicativo.
  
 4. Em **Plataformas**, selecione **Adicionar plataforma**.
-5. Escolha **Aplicativo móvel**.
-6. Copie o valor da ID de Cliente (ID de Aplicativo) para a área de transferência. Você precisará inserir esses valores no exemplo de aplicativo.
+5. Escolha **Aplicativo Nativo**.
+6. Copie o valor da ID do aplicativo e o valor do URI de redirecionamento personalizado (abaixo do cabeçalho do **Aplicativo Nativo**) criados quando você adicionou a plataforma do **Aplicativo Nativo**. Este URI deve conter o valor da ID do aplicativo e estar neste formato: `msal<Application Id>://auth` Você precisará inserir esses valores no aplicativo de exemplo.
 
-    Essa ID de aplicativo é o identificador exclusivo do aplicativo.
+    A ID de aplicativo é o identificador exclusivo do aplicativo.
 
 7. Selecione **Salvar**.
 
 <a name="build"></a>
 ## <a name="build-and-debug"></a>Compilar e depurar ##
 
-**Observação:** Caso receba mensagens de erro durante a instalação de pacotes na etapa 2, verifique se o caminho para o local onde você colocou a solução não é muito longo ou extenso. Para resolver esse problema, coloque a solução junto à raiz da unidade.
+**Observação:** caso receba mensagens de erro durante a instalação de pacotes na etapa 12, verifique se o caminho para o local onde você colocou a solução não é muito longo ou extenso. Para resolver esse problema, coloque a solução junto à raiz da unidade.
 
 1. Abra o arquivo App.cs no projeto **XamarinConnect (Portátil)** da solução.
 
@@ -72,18 +73,26 @@ Você pode usar o [Emulador do Visual Studio para Android](https://www.visualstu
 
     ![](/readme-images/appId.png "Client ID value in App.cs file")
 
-3. Escolha o projeto que você deseja excluir. Se escolher a opção Plataforma Universal do Windows, você poderá executar o exemplo no computador local. Se quiser executar o projeto do iOS, você precisará se conectar a um [Mac que tenha as ferramentas Xamarin](https://developer.xamarin.com/guides/ios/getting_started/installation/windows/connecting-to-mac/) instaladas nele. (Você também pode abrir esta solução no Xamarin Studio em um Mac e executar o exemplo diretamente de lá). Você pode usar o [Emulador do Microsoft Visual Studio para Android](https://www.visualstudio.com/features/msft-android-emulator-vs.aspx), caso pretenda executar o projeto do Android. 
+3. Abra o arquivo UserDetailsClient.iOS\info.plist em um editor de texto. Não é possível abri-lo no Visual Studio. Localize o elemento `<string>msalENTER_YOUR_CLIENT_ID</string>` abaixo da chave `CFBundleURLSchemes`.
+
+4. Substitua `ENTER_YOUR_CLIENT_ID` com o valor da ID do aplicativo obtido quando você registrou o aplicativo. Assegure-se de reter `msal` antes da ID do aplicativo. O valor da cadeia de caracteres resultante deve ter esta aparência: `<string>msal<application id></string>`.
+
+5. Abra o arquivo UserDetailsClient.Droid\Properties\AndroidManifest.xml. Localize este elemento: `<data android:scheme="msalENTER_YOUR_CLIENT_ID" android:host="auth" />`.
+
+6. Substitua `ENTER_YOUR_CLIENT_ID` com o valor da ID do aplicativo obtido quando você registrou o aplicativo. Assegure-se de reter `msal` antes da ID do aplicativo. O valor da cadeia de caracteres resultante deve ter esta aparência: `<data android:scheme="msal<application id>" android:host="auth" />`.
+
+7. Escolha o projeto que você deseja excluir. Se escolher a opção Plataforma Universal do Windows, você poderá executar o exemplo no computador local. Se quiser executar o projeto do iOS, você precisará se conectar a um [Mac que tenha as ferramentas Xamarin](https://developer.xamarin.com/guides/ios/getting_started/installation/windows/connecting-to-mac/) instaladas nele. (Você também pode abrir esta solução no Xamarin Studio em um Mac e executar o exemplo diretamente de lá). Você pode usar o [Emulador do Visual Studio para Android](https://www.visualstudio.com/features/msft-android-emulator-vs.aspx) se quiser executar o projeto do Android. 
 
     ![](/readme-images/SelectProject.png "Select project in Visual Studio")
 
-4. Pressione F5 para criar e depurar. Execute a solução e entre com sua conta pessoal ou sua conta comercial ou escolar.
+8. Pressione F5 para criar e depurar. Execute a solução e entre com sua conta pessoal ou sua conta comercial ou escolar.
     > **Observação** Talvez seja necessário abrir o Gerenciador de Configuração de Compilação para certificar-se de que as etapas de Compilar e Implantar estejam selecionadas para o projeto do UWP.
 
 | UWP | Android | iOS |
 | --- | ------- | ----|
 | <img src="/readme-images/UWP.png" alt="Connect sample on UWP" width="100%" /> | <img src="/readme-images/Droid.png" alt="Connect sample on Android" width="100%" /> | <img src="/readme-images/iOS.png" alt="Connect sample on iOS" width="100%" /> |
 
-###<a name="summary-of-key-methods"></a>Resumo dos principais métodos
+### <a name="summary-of-key-methods"></a>Resumo dos principais métodos
 
 O código na página principal do aplicativo é relativamente simples e autoexplicativo já que as chamadas para o serviço de email e a autenticação realmente ocorrem nas classes auxiliares. O código da página principal consiste principalmente de manipuladores de eventos para os dois botões:
 

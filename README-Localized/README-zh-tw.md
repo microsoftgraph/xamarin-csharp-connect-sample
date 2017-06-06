@@ -1,6 +1,6 @@
 # <a name="microsoft-graph-connect-sample-for-xamarin-forms"></a>Microsoft Graph Connect 範例 (適用於 Xamarin Forms)
 
-##<a name="table-of-contents"></a>目錄
+## <a name="table-of-contents"></a>目錄
 
 * [簡介](#introduction)
 * [必要條件](#prerequisites)
@@ -10,16 +10,17 @@
 * [其他資源](#additional-resources)
 
 <a name="introduction"></a>
-##<a name="introduction"></a>簡介
+## <a name="introduction"></a>簡介
 
-這個範例示範如何使用 Microsoft Graph API 將 Xamarin Forms 應用程式連線至 Microsoft 工作或學校 (Azure Active Directory) 或個人 (Microsoft) 帳戶，以傳送郵件。它會使用 [Microsoft Graph.NET 用戶端 SDK](https://github.com/microsoftgraph/msgraph-sdk-dotnet)，使用 Microsoft Graph 所傳回的資料。
+這個範例會顯示如何使用 Microsoft Graph API 將 Xamarin Forms 應用程式連線至 Microsoft 工作或學校 (Azure Active Directory) 或個人 (Microsoft) 帳戶，用來擷取使用者的基本資料圖片、將圖片上傳至 OneDrive，並傳送含有相片作為附件且文字中包含共用連結的電子郵件。 它會使用 [Microsoft Graph.NET 用戶端 SDK](https://github.com/microsoftgraph/msgraph-sdk-dotnet)，使用 Microsoft Graph 所傳回的資料。
 
 此外，範例會使用 [Microsoft 驗證程式庫 (MSAL)](https://www.nuget.org/packages/Microsoft.Identity.Client/) 進行驗證。MSAL SDK 提供功能以使用 [Azure AD v2.0 端點](https://msdn.microsoft.com/office/office365/howto/authenticate-Office-365-APIs-using-v2)，可讓開發人員撰寫單一程式碼流程，處理使用者的工作或學校和個人帳戶的驗證。
 
 如果您想要在自己的 Xamarin Forms 應用程式中使用 MSAL，請遵循[這些指示以設定 Xamarin Forms 專案與 MSAL](https://github.com/microsoftgraph/xamarin-csharp-connect-sample/wiki/Set-up-a-Xamarin-Forms-project-to-use-the-MSAL-.NET-SDK)。
 
- > **附註** MSAL SDK 目前是發行前版本，因此不應該用於實際執行程式碼。在這裡僅供說明目的使用。
+## <a name="important-note-about-the-msal-preview"></a>MSAL 預覽相關的重要事項
 
+這個程式庫適合在實際執行環境中使用。 我們為我們目前的實際執行程式庫提供與此程式庫相同的實際執行層級支援。 在預覽期間，我們可能會變更此程式庫的 API、內部快取格式和其他機制，您將必須對此程式庫進行錯誤修復或增強功能。 這可能會影響您的應用程式。 舉例來說，變更快取格式可能會影響您的使用者，例如需要使用者重新登入。 API 變更可能需要更新您的程式碼。 當我們提供「一般可用性」版本時，將要求您在六個月內更新至「一般可用性」版本，因為使用程式庫預覽版本所撰寫的應用程式可能無法運作。
 
 <a name="prerequisites"></a>
 ## <a name="prerequisites"></a>必要條件 ##
@@ -42,17 +43,17 @@
 如果您想要執行 Android 專案，您可以使用[適用於 Android 的 Visual Studio 模擬器](https://www.visualstudio.com/features/msft-android-emulator-vs.aspx)。
 
 <a name="register"></a>
-##<a name="register-and-configure-the-app"></a>註冊和設定應用程式
+## <a name="register-and-configure-the-app"></a>註冊和設定應用程式
 
 1. 使用您的個人或工作或學校帳戶登入[應用程式註冊入口網站](https://apps.dev.microsoft.com/)。
 2. 選取 [新增應用程式]****。
-3. 為應用程式輸入名稱，然後選取 [建立應用程式]****。
+3. 為應用程式輸入名稱，然後選取 [建立]****。
     
     [註冊] 頁面隨即顯示，列出您的應用程式的屬性。
  
 4. 在 [平台]**** 底下，選取 [新增平台]****。
-5. 選取 [行動應用程式]****。
-6. 將用戶端識別碼 (應用程式識別碼) 值複製到剪貼簿。您必須將這些值輸入範例應用程式中。
+5. 選取 [原生應用程式]****。
+6. 複製「應用程式識別碼」值和「自訂重新導向 URI」值 (在**原生應用程式**標頭下)，這是在您新增 [原生應用程式]**** 平台時所建立的。 此 URI 應包含您的應用程式識別碼值，且格式如下︰`msal<Application Id>://auth`您必須將這些值輸入範例應用程式中。
 
     應用程式識別碼是您的應用程式的唯一識別碼。
 
@@ -61,7 +62,7 @@
 <a name="build"></a>
 ## <a name="build-and-debug"></a>建置和偵錯 ##
 
-**附註︰**如果您在步驟 2 安裝封裝時看到任何錯誤，請確定您放置解決方案的本機路徑不會太長/太深。將解決方案移靠近您的磁碟機根目錄可解決這個問題。
+**附註：**如果您在步驟 12 安裝封裝時看到任何錯誤，請確定您放置解決方案的本機路徑不會太長/太深。將解決方案移靠近您的磁碟機根目錄可解決這個問題。
 
 1. 開啟解決方案的 **XamarinConnect (可攜式)** 專案內的 App.cs 檔案。
 
@@ -72,18 +73,26 @@
 
     ![](/readme-images/appId.png "Client ID value in App.cs file")
 
-3. 選取您要執行的專案。如果您選取 [通用 Windows 平台] 選項，您可以在本機機器上執行範例。如果您想要執行 iOS 專案，您必須連接至[已安裝 Xamarin 工具的 Mac](https://developer.xamarin.com/guides/ios/getting_started/installation/windows/connecting-to-mac/)。(您也可以在 Mac 上，在 Xamarin Studio 中開啟此解決方案，然後直接從那裡執行範例。)如果您想要執行 Android 專案，您可以使用[適用於 Android 的 Visual Studio 模擬器](https://www.visualstudio.com/features/msft-android-emulator-vs.aspx)。 
+3. 在文字編輯器中開啟 UserDetailsClient.iOS\info.plist 檔案。 不幸的是，您無法在 Visual Studio 中編輯這個檔案。 在 `CFBundleURLSchemes` 機碼下找到的 `<string>msalENTER_YOUR_CLIENT_ID</string>` 元素。
+
+4. 將 `ENTER_YOUR_CLIENT_ID` 取代註冊您的應用程式時所獲得的應用程式識別碼值。 請務必在應用程式識別碼之前保留 `msal`。 產生的字串值應如下所示︰`<string>msal<application id></string>`。
+
+5. 開啟 UserDetailsClient.Droid\Properties\AndroidManifest.xml 檔案。 找到此元素︰`<data android:scheme="msalENTER_YOUR_CLIENT_ID" android:host="auth" />`。
+
+6. 將 `ENTER_YOUR_CLIENT_ID` 取代註冊您的應用程式時所獲得的應用程式識別碼值。 請務必在應用程式識別碼之前保留 `msal`。 產生的字串值應如下所示︰`<data android:scheme="msal<application id>" android:host="auth" />`。
+
+7. 選取您要執行的專案。如果您選取 [通用 Windows 平台] 選項，您可以在本機機器上執行範例。如果您想要執行 iOS 專案，您必須連接至[已安裝 Xamarin 工具的 Mac](https://developer.xamarin.com/guides/ios/getting_started/installation/windows/connecting-to-mac/)。(您也可以在 Mac 上，在 Xamarin Studio 中開啟此解決方案，然後直接從那裡執行範例。)如果您想要執行 Android 專案，您可以使用[適用於 Android 的 Visual Studio 模擬器](https://www.visualstudio.com/features/msft-android-emulator-vs.aspx)。 
 
     ![](/readme-images/SelectProject.png "Select project in Visual Studio")
 
-4. 按 F5 進行建置和偵錯。執行解決方案並且登入您的個人或工作或學校帳戶。
+8. 按 F5 進行建置和偵錯。執行解決方案並且登入您的個人或工作或學校帳戶。
     > **附註** 您可能必須開啟組建組態管理員，以確定針對 UWP 專案選取建置和部署步驟。
 
 | UWP | Android | iOS |
 | --- | ------- | ----|
 | <img src="/readme-images/UWP.png" alt="Connect sample on UWP" width="100%" /> | <img src="/readme-images/Droid.png" alt="Connect sample on Android" width="100%" /> | <img src="/readme-images/iOS.png" alt="Connect sample on iOS" width="100%" /> |
 
-###<a name="summary-of-key-methods"></a>主要方法的摘要
+### <a name="summary-of-key-methods"></a>主要方法的摘要
 
 應用程式的主頁面中的程式碼相當直覺且淺顯易懂，因為驗證和電子郵件服務的呼叫確實在協助程式類別中發生。主頁面程式碼主要包含兩個按鈕的事件處理常式：
 

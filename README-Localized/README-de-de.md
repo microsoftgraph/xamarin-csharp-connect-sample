@@ -1,6 +1,6 @@
 # <a name="microsoft-graph-connect-sample-for-xamarin-forms"></a>Microsoft Graph Connect-Beispiel für Xamarin Forms
 
-##<a name="table-of-contents"></a>Inhalt
+## <a name="table-of-contents"></a>Inhalt
 
 * [Einführung](#introduction)
 * [Voraussetzungen](#prerequisites)
@@ -10,19 +10,20 @@
 * [Weitere Ressourcen](#additional-resources)
 
 <a name="introduction"></a>
-##<a name="introduction"></a>Einführung
+## <a name="introduction"></a>Einführung
 
-In diesem Beispiel wird gezeigt, wie eine Xamarin Forms-App mit einem Microsoft-Geschäfts- oder Schulkonto (Azure Active Directory) oder mit einem persönlichen Konto (Microsoft) mithilfe der Microsoft Graph-API zum Senden einer E-Mail verbunden wird. Es verwendet das [Microsoft Graph .NET-Client-SDK](https://github.com/microsoftgraph/msgraph-sdk-dotnet), um mit Daten zu arbeiten, die von Microsoft Graph zurückgegeben werden.
+Dieses Beispiel zeigt, wie Sie eine Xamarin Forms-App mit einem Microsoft-Geschäfts-, Schul- oder Unikonto (Azure Active Directory) oder einem persönlichen (Microsoft) Konto anhand der Microsoft Graph API verbinden, um das Profilbild eines Benutzers abzurufen, das Bild in OneDrive hochzuladen und eine E-Mail zu senden, das das Foto als Anhang und den Freigabelink als Text enthält. Es verwendet das [Microsoft Graph .NET-Client-SDK](https://github.com/microsoftgraph/msgraph-sdk-dotnet), um mit Daten zu arbeiten, die von Microsoft Graph zurückgegeben werden.
 
 Das Beispiel verwendet außerdem die [Microsoft-Authentifizierungsbibliothek (MSAL)](https://www.nuget.org/packages/Microsoft.Identity.Client/) für die Authentifizierung. Das MSAL-SDK bietet Features für die Arbeit mit dem [Azure AD v2.0-Authentifizierungsendpunkt](https://msdn.microsoft.com/office/office365/howto/authenticate-Office-365-APIs-using-v2), der es Entwicklern ermöglicht, einen einzelnen Codefluss zu schreiben, der die Authentifizierung sowohl für Geschäfts- oder Schulkonten von Benutzern als auch für persönliche Konten verarbeitet.
 
 Wenn Sie in einer eigenen Xamarin Forms-App mit MSAL arbeiten möchten, befolgen Sie die folgenden [Anweisungen zum Einrichten eines Xamarin Forms-Projekts mit MSAL](https://github.com/microsoftgraph/xamarin-csharp-connect-sample/wiki/Set-up-a-Xamarin-Forms-project-to-use-the-MSAL-.NET-SDK).
 
- > **Hinweis** Das MSAL-SDK befindet sich derzeit in der Vorabversion und sollte daher nicht in Produktionscode verwendet werden. Es dient hier nur zur Veranschaulichung
+## <a name="important-note-about-the-msal-preview"></a>Wichtiger Hinweis zur MSAL-Vorschau
 
+Diese Bibliothek eignet sich für die Verwendung in einer Produktionsumgebung. Wir bieten für diese Bibliothek den gleichen Support auf Produktionsebene wie für alle anderen aktuellen Produktionsbibliotheken. Während der Vorschau nehmen wir möglicherweise Änderungen an der API, dem internen Cacheformat und anderen Mechanismen dieser Bibliothek vor, die Sie zusammen mit Fehlerbehebungen oder Funktionsverbesserungen übernehmen müssen. Dies kann sich auf Ihre Anwendung auswirken. So kann sich eine Änderung des Cacheformats beispielsweise auf die Benutzer auswirken, indem sie sich z. B. erneut anmelden müssen. Eine Änderung der API kann dazu führen, dass Sie den Code aktualisieren müssen. Wenn wir das allgemein verfügbare Release bereitstellen, müssen Sie innerhalb von sechs Monaten auf die allgemein verfügbare Version aktualisieren, da Anwendungen, die mit einer Vorschauversion der Bibliothek erstellt wurden, möglicherweise nicht mehr funktionieren.
 
 <a name="prerequisites"></a>
-## <a name="prerequisites"></a>Anforderungen ##
+## <a name="prerequisites"></a>Voraussetzungen ##
 
 Für dieses Beispiel ist Folgendes erforderlich:  
 
@@ -42,17 +43,17 @@ Wenn Sie das iOS-Projekt in diesem Beispiel ausführen möchten, benötigen Sie 
 Sie können den [Visual Studio-Emulator für Android](https://www.visualstudio.com/features/msft-android-emulator-vs.aspx) verwenden, wenn Sie das Android-Projekt ausführen möchten.
 
 <a name="register"></a>
-##<a name="register-and-configure-the-app"></a>Registrieren und Konfigurieren der App
+## <a name="register-and-configure-the-app"></a>Registrieren und Konfigurieren der App
 
 1. Melden Sie sich beim [App-Registrierungsportal](https://apps.dev.microsoft.com/) entweder mit Ihrem persönlichen oder geschäftlichen Konto oder mit Ihrem Schulkonto an.
 2. Klicken Sie auf **App hinzufügen**.
-3. Geben Sie einen Namen für die App ein, und wählen Sie **Anwendung erstellen** aus.
+3. Geben Sie einen Namen für die App ein, und wählen Sie dann **Erstellen** aus.
     
     Die Registrierungsseite wird angezeigt, und die Eigenschaften der App werden aufgeführt.
  
 4. Wählen Sie unter **Plattformen** die Option **Plattform hinzufügen** aus.
-5. Wählen Sie **Mobile Anwendung** aus.
-6. Kopieren Sie den Wert für die Client-ID (App-ID) in die Zwischenablage. Sie müssen diese Werte in die Beispiel-App eingeben.
+5. Wählen Sie **Systemeigene Anwendung**.
+6. Kopieren Sie den ID-Wert der Anwendung und den Wert für den benutzerdefinierten Umleitungs-URI (unter **Systemeigene Anwendung**), der für Sie erstellt wurde, als Sie die Plattform **Systemeigene Anwendung** hinzugefügt haben. Dieser URI muss den Wert der Anwendungs-ID enthalten und das folgende Format aufweisen: `msal<Application Id>://auth` Sie müssen diese Werte in die Beispiel-App eingeben.
 
     Die App-ID ist ein eindeutiger Bezeichner für Ihre App.
 
@@ -61,7 +62,7 @@ Sie können den [Visual Studio-Emulator für Android](https://www.visualstudio.c
 <a name="build"></a>
 ## <a name="build-and-debug"></a>Erstellen und Debuggen ##
 
-**Hinweis:** Wenn beim Installieren der Pakete während des Schritts 2 Fehler angezeigt werden, müssen Sie sicherstellen, dass der lokale Pfad, unter dem Sie die Projektmappe abgelegt haben, weder zu lang noch zu tief ist. Dieses Problem lässt sich beheben, indem Sie den Pfad auf Ihrem Laufwerk verkürzen.
+**Hinweis:** Wenn beim Installieren der Pakete während des Schritts 12 Fehler angezeigt werden, müssen Sie sicherstellen, dass der lokale Pfad, unter dem Sie die Projektmappe abgelegt haben, weder zu lang noch zu tief ist. Dieses Problem lässt sich beheben, indem Sie den Pfad auf Ihrem Laufwerk verkürzen.
 
 1. Öffnen Sie die Datei „App.cs“ innerhalb des **XamarinConnect (Portable)**-Projekts der Lösung.
 
@@ -72,18 +73,26 @@ Sie können den [Visual Studio-Emulator für Android](https://www.visualstudio.c
 
     ![](/readme-images/appId.png "Client ID value in App.cs file")
 
-3. Wählen Sie das auszuführende Projekt aus. Wenn Sie die Option für die universelle Windows-Plattform auswählen, können Sie das Beispiel auf dem lokalen Computer ausführen. Wenn Sie das iOS-Projekt ausführen möchten, müssen Sie eine Verbindung zu einem [Mac herstellen, auf dem die Xamarin-Tools installiert](https://developer.xamarin.com/guides/ios/getting_started/installation/windows/connecting-to-mac/) sind. (Sie können diese Lösung auch in Xamarin Studio auf einem Mac öffnen und das Beispiel direkt dort ausführen.) Sie können den [Visual Studio-Emulator für Android](https://www.visualstudio.com/features/msft-android-emulator-vs.aspx) verwenden, wenn Sie das Android-Projekt ausführen möchten. 
+3. Öffnen Sie die Datei "UserDetailsClient.iOS\info.plist" in einem Texteditor. Sie können diese Datei leider nicht in Visual Studio bearbeiten. Suchen Sie das Element `<string>msalENTER_YOUR_CLIENT_ID</string>` unter dem Schlüssel `CFBundleURLSchemes`.
+
+4. Ersetzen Sie `ENTER_YOUR_CLIENT_ID` durch den Wert der Anwendungs-ID, die Sie beim Registrieren der App erhalten haben. Sie müssen `msal` unbedingt vor der Anwendungs-ID beibehalten. Der resultierende Zeichenfolgenwert sollte wie folgt aussehen: `<string>msal<application id></string>`.
+
+5. Öffnen Sie die Datei "UserDetailsClient.Droid\Properties\AndroidManifest.xml". Suchen Sie das folgende Element: `<data android:scheme="msalENTER_YOUR_CLIENT_ID" android:host="auth" />`.
+
+6. Ersetzen Sie `ENTER_YOUR_CLIENT_ID` durch den Wert der Anwendungs-ID, die Sie beim Registrieren der App erhalten haben. Sie müssen `msal` unbedingt vor der Anwendungs-ID beibehalten. Der resultierende Zeichenfolgenwert sollte wie folgt aussehen: `<data android:scheme="msal<application id>" android:host="auth" />`.
+
+7. Wählen Sie das auszuführende Projekt aus. Wenn Sie die Option für die universelle Windows-Plattform auswählen, können Sie das Beispiel auf dem lokalen Computer ausführen. Wenn Sie das iOS-Projekt ausführen möchten, müssen Sie eine Verbindung zu einem [Mac herstellen, auf dem die Xamarin-Tools installiert](https://developer.xamarin.com/guides/ios/getting_started/installation/windows/connecting-to-mac/) sind. (Sie können diese Projektmappe auch in Xamarin Studio auf einem Mac öffnen und das Beispiel direkt dort ausführen.) Sie können den [Visual Studio-Emulator für Android](https://www.visualstudio.com/features/msft-android-emulator-vs.aspx) verwenden, wenn Sie das Android-Projekt ausführen möchten. 
 
     ![](/readme-images/SelectProject.png "Select project in Visual Studio")
 
-4. Drücken Sie zum Erstellen und Debuggen F5. Führen Sie die Lösung aus, und melden Sie sich entweder mit Ihrem persönlichen Konto oder mit Ihrem Geschäfts- oder Schulkonto an.
+8. Drücken Sie zum Erstellen und Debuggen F5. Führen Sie die Lösung aus, und melden Sie sich entweder mit Ihrem persönlichen Konto oder mit Ihrem Geschäfts- oder Schulkonto an.
     > **Hinweis** Möglicherweise müssen Sie den Buildkonfigurations-Manager öffnen, um sicherzustellen, dass die Build- und Bereitstellungsschritte für das UWP-Projekt ausgewählt sind.
 
 | UWP | Android | iOS |
 | --- | ------- | ----|
 | <img src="/readme-images/UWP.png" alt="Connect sample on UWP" width="100%" /> | <img src="/readme-images/Droid.png" alt="Connect sample on Android" width="100%" /> | <img src="/readme-images/iOS.png" alt="Connect sample on iOS" width="100%" /> |
 
-###<a name="summary-of-key-methods"></a>Zusammenfassung der wichtigsten Methoden
+### <a name="summary-of-key-methods"></a>Zusammenfassung der wichtigsten Methoden
 
 Der Code auf der Hauptseite der App ist relativ einfach und selbsterklärend, da die Aufrufe für den Authentifizierungs- und E-Mail-Dienst tatsächlich in den Helferklassen stattfinden. Der Code auf der Hauptseite besteht in erster Linie aus Ereignishandlern für die beiden Schaltflächen:
 
