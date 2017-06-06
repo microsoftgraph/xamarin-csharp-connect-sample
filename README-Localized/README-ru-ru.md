@@ -1,6 +1,6 @@
-﻿#<a name="microsoft-graph-connect-sample-for-xamarin-forms"></a>Пример приложения, подключающегося с использованием Microsoft Graph, для Xamarin Forms
+# <a name="microsoft-graph-connect-sample-for-xamarin-forms"></a>Пример приложения, подключающегося с использованием Microsoft Graph, для Xamarin Forms
 
-##<a name="table-of-contents"></a>Содержание
+## <a name="table-of-contents"></a>Содержание
 
 * [Введение](#introduction)
 * [Необходимые компоненты](#prerequisites)
@@ -10,7 +10,7 @@
 * [Дополнительные ресурсы](#additional-resources)
 
 <a name="introduction"></a>
-##<a name="introduction"></a>Введение
+## <a name="introduction"></a>Введение
 
 В этом примере показано, как подключить приложение на базе Xamarin.Forms к рабочей или учебной учетной записи Майкрософт (Azure Active Directory) или личной учетной записи Майкрософт с помощью API Microsoft Graph, чтобы получить изображение профиля пользователя, передать это изображение в OneDrive и отправить электронное письмо с вложенной фотографией и ссылкой для общего доступа, указанной в тексте сообщения. Для работы с данными, возвращаемыми Microsoft Graph, используется [клиентский пакет SDK для .NET Microsoft Graph](https://github.com/microsoftgraph/msgraph-sdk-dotnet).
 
@@ -18,12 +18,12 @@
 
 Если вы хотите работать с MSAL в собственном приложении Xamarin Forms, следуйте [этим инструкциям по настройке проекта Xamarin Forms с MSAL](https://github.com/microsoftgraph/xamarin-csharp-connect-sample/wiki/Set-up-a-Xamarin-Forms-project-to-use-the-MSAL-.NET-SDK).
 
-##<a name="important-note-about-the-msal-preview"></a>Важное примечание о предварительной версии MSAL
+## <a name="important-note-about-the-msal-preview"></a>Важное примечание о предварительной версии MSAL
 
 Эту библиотеку можно использовать в рабочей среде. Для этой библиотеки мы предоставляем тот же уровень поддержки, что и для текущих библиотек рабочей среды. Мы можем внести изменения в API, формат внутреннего кэша и другие функциональные элементы, касающиеся этой предварительной версии библиотеки, которые вам потребуется принять вместе с улучшениями или исправлениями. Это может повлиять на ваше приложение. Например, в результате изменения формата кэша пользователям может потребоваться опять выполнить вход. При изменении API может потребоваться обновить код. Когда мы предоставим общедоступный выпуск, вам потребуется выполнить обновление до общедоступной версии в течение шести месяцев, так как приложения, написанные с использованием предварительной версии библиотеки, могут больше не работать.
 
 <a name="prerequisites"></a>
-##<a name="prerequisites"></a>Необходимые условия ##
+## <a name="prerequisites"></a>Необходимые условия ##
 
 Для этого примера требуются следующие компоненты:  
 
@@ -43,7 +43,7 @@
 Вы можете использовать [эмулятор Visual Studio для Android](https://www.visualstudio.com/features/msft-android-emulator-vs.aspx), чтобы запустить проект Android.
 
 <a name="register"></a>
-##<a name="register-and-configure-the-app"></a>Регистрация и настройка приложения
+## <a name="register-and-configure-the-app"></a>Регистрация и настройка приложения
 
 1. Войдите на [портал регистрации приложений](https://apps.dev.microsoft.com/) с помощью личной, рабочей или учебной учетной записи.
 2. Выберите **Добавить приложение**.
@@ -60,7 +60,7 @@
 7. Нажмите кнопку **Сохранить**.
 
 <a name="build"></a>
-##<a name="build-and-debug"></a>Сборка и отладка ##
+## <a name="build-and-debug"></a>Сборка и отладка ##
 
 **Примечание.** Если во время установки пакетов при выполнении шага 12 возникают ошибки, убедитесь, что локальный путь к решению не слишком длинный. Чтобы устранить эту проблему, переместите решение ближе к корню диска.
 
@@ -92,7 +92,7 @@
 | --- | ------- | ----|
 | <img src="/readme-images/UWP.png" alt="Connect sample on UWP" width="100%" /> | <img src="/readme-images/Droid.png" alt="Connect sample on Android" width="100%" /> | <img src="/readme-images/iOS.png" alt="Connect sample on iOS" width="100%" /> |
 
-###<a name="summary-of-key-methods"></a>Обзор ключевых методов
+### <a name="summary-of-key-methods"></a>Обзор ключевых методов
 
 Код на главной странице приложения относительно прост и понятен, так как вызовы службы проверки подлинности и электронной почты по факту выполняются во вспомогательных классах. Код главной страницы главным образом состоит из обработчиков событий для двух кнопок.
 
@@ -119,21 +119,21 @@
     Этот метод класса **MailHelper** создает и отправляет пример сообщения электронной почты.
 
 <a name="contributing"></a>
-##<a name="contributing"></a>Участие ##
+## <a name="contributing"></a>Участие ##
 
 Если вы хотите добавить код в этот пример, просмотрите статью [CONTRIBUTING.MD](/CONTRIBUTING.md).
 
 Этот проект соответствует [правилам поведения Майкрософт, касающимся обращения с открытым кодом](https://opensource.microsoft.com/codeofconduct/). Читайте дополнительные сведения в [разделе вопросов и ответов по правилам поведения](https://opensource.microsoft.com/codeofconduct/faq/) или отправляйте новые вопросы и замечания по адресу [opencode@microsoft.com](mailto:opencode@microsoft.com).
 
 <a name="questions"></a>
-##<a name="questions-and-comments"></a>Вопросы и комментарии
+## <a name="questions-and-comments"></a>Вопросы и комментарии
 
 Мы будем рады получить от вас отзывы о проекте примера приложения для Xamarin Forms, подключающегося с использованием Microsoft Graph. Вы можете отправлять нам вопросы и предложения на вкладке [Issues](https://github.com/MicrosoftGraph/xamarin-csharp-connect-sample/issues) (Проблемы) этого репозитория.
 
 Ваш отзыв важен для нас. Для связи с нами используйте сайт [Stack Overflow](http://stackoverflow.com/questions/tagged/office365+or+microsoftgraph). Помечайте свои вопросы тегом [MicrosoftGraph].
 
 <a name="additional-resources"></a>
-##<a name="additional-resources"></a>Дополнительные ресурсы ##
+## <a name="additional-resources"></a>Дополнительные ресурсы ##
 
 - [Другие примеры Microsoft Graph Connect](https://github.com/MicrosoftGraph?utf8=%E2%9C%93&query=-Connect)
 - [Общие сведения о Microsoft Graph](http://graph.microsoft.io)
@@ -141,7 +141,7 @@
 - [Центр разработки для Office](http://dev.office.com/)
 
 
-##<a name="copyright"></a>Авторское право
+## <a name="copyright"></a>Авторское право
 (c) Корпорация Майкрософт (Microsoft Corporation), 2016. Все права защищены.
 
 

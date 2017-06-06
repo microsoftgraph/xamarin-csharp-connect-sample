@@ -1,6 +1,6 @@
-﻿#<a name="microsoft-graph-connect-sample-for-xamarin-forms"></a>Xamarin Forms 用 Microsoft Graph Connect のサンプル
+# <a name="microsoft-graph-connect-sample-for-xamarin-forms"></a>Xamarin Forms 用 Microsoft Graph Connect のサンプル
 
-##<a name="table-of-contents"></a>目次
+## <a name="table-of-contents"></a>目次
 
 * [はじめに](#introduction)
 * [前提条件](#prerequisites)
@@ -10,7 +10,7 @@
 * [その他のリソース](#additional-resources)
 
 <a name="introduction"></a>
-##<a name="introduction"></a>概要
+## <a name="introduction"></a>概要
 
 このサンプルでは、Microsoft Graph API を使って Xamarin Forms アプリを Microsoft の職場または学校 (Azure Active Directory) アカウントまたは個人用 (Microsoft) アカウントに接続して、ユーザーのプロフィール画像の取得、OneDrive への画像のアップロード、電子メール (画像が添付され、共有リンクがテキストに含まれる) の送信を行う方法を示します。 [Microsoft Graph .NET クライアント SDK](https://github.com/microsoftgraph/msgraph-sdk-dotnet) を使用して、Microsoft Graph が返すデータを操作します。
 
@@ -18,12 +18,12 @@
 
 独自の Xamarin Forms アプリで MSAL を開発する場合は、[MSAL で Xamarin Forms プロジェクトをセットアップするためのこれらの手順](https://github.com/microsoftgraph/xamarin-csharp-connect-sample/wiki/Set-up-a-Xamarin-Forms-project-to-use-the-MSAL-.NET-SDK)を実行します。
 
-##<a name="important-note-about-the-msal-preview"></a>MSAL プレビューに関する重要な注意事項
+## <a name="important-note-about-the-msal-preview"></a>MSAL プレビューに関する重要な注意事項
 
 このライブラリは、運用環境での使用に適しています。 このライブラリに対しては、現在の運用ライブラリと同じ運用レベルのサポートを提供します。 プレビュー中にこのライブラリの API、内部キャッシュの形式、および他のメカニズムを変更する場合があります。これは、バグの修正や機能強化の際に実行する必要があります。 これは、アプリケーションに影響を与える場合があります。 例えば、キャッシュ形式を変更すると、再度サインインが要求されるなどの影響をユーザーに与えます。 API を変更すると、コードの更新が要求される場合があります。 一般提供リリースが実施されると、プレビュー バージョンを使って作成されたアプリケーションは動作しなくなるため、6 か月以内に一般提供バージョンに更新することが求められます。
 
 <a name="prerequisites"></a>
-##<a name="prerequisites"></a>前提条件 ##
+## <a name="prerequisites"></a>前提条件 ##
 
 このサンプルを実行するには次のものが必要です:  
 
@@ -43,7 +43,7 @@
 Android プロジェクトを実行する場合は、[Visual Studio Emulator for Android](https://www.visualstudio.com/features/msft-android-emulator-vs.aspx) を使用できます。
 
 <a name="register"></a>
-##<a name="register-and-configure-the-app"></a>アプリを登録して構成する
+## <a name="register-and-configure-the-app"></a>アプリを登録して構成する
 
 1. 個人用アカウント、あるいは職場または学校アカウントのいずれかを使用して、[アプリ登録ポータル](https://apps.dev.microsoft.com/)にサインインします。
 2. **[アプリの追加]** を選択します。
@@ -60,7 +60,7 @@ Android プロジェクトを実行する場合は、[Visual Studio Emulator for
 7. **[保存]** を選択します。
 
 <a name="build"></a>
-##<a name="build-and-debug"></a>ビルドとデバッグ ##
+## <a name="build-and-debug"></a>ビルドとデバッグ ##
 
 **注:**手順 12 でパッケージのインストール中にエラーが発生した場合は、ソリューションを保存したローカル パスが長すぎたり深すぎたりしていないかご確認ください。ドライブのルート近くにソリューションを移動すると問題が解決します。
 
@@ -92,7 +92,7 @@ Android プロジェクトを実行する場合は、[Visual Studio Emulator for
 | --- | ------- | ----|
 | <img src="/readme-images/UWP.png" alt="Connect sample on UWP" width="100%" /> | <img src="/readme-images/Droid.png" alt="Connect sample on Android" width="100%" /> | <img src="/readme-images/iOS.png" alt="Connect sample on iOS" width="100%" /> |
 
-###<a name="summary-of-key-methods"></a>主なメソッドの概要
+### <a name="summary-of-key-methods"></a>主なメソッドの概要
 
 アプリのメイン ページのコードは、比較的単純なため説明が必要ありません。これは認証とメール サービスの呼び出しが実際にはヘルパー クラスで発生するためです。メイン ページのコードは、主に 2 つのボタン用のイベント ハンドラーで構成されています:
 
@@ -126,14 +126,14 @@ Android プロジェクトを実行する場合は、[Visual Studio Emulator for
 このプロジェクトでは、[Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/) が採用されています。詳細については、「[規範に関する FAQ](https://opensource.microsoft.com/codeofconduct/faq/)」を参照してください。または、その他の質問やコメントがあれば、[opencode@microsoft.com](mailto:opencode@microsoft.com) までにお問い合わせください。
 
 <a name="questions"></a>
-##<a name="questions-and-comments"></a>質問とコメント
+## <a name="questions-and-comments"></a>質問とコメント
 
 Xamarin.Forms プロジェクト用 Microsoft Graph Connect のサンプルに関するフィードバックをお寄せください。質問や提案につきましては、このリポジトリの「[問題](https://github.com/MicrosoftGraph/xamarin-csharp-connect-sample/issues)」セクションで送信できます。
 
 お客様からのフィードバックを重視しています。[スタック オーバーフロー](http://stackoverflow.com/questions/tagged/office365+or+microsoftgraph)でご連絡いただけます。ご質問には [MicrosoftGraph] のタグを付けてください。
 
 <a name="additional-resources"></a>
-##<a name="additional-resources"></a>追加リソース ##
+## <a name="additional-resources"></a>追加リソース ##
 
 - [その他の Microsoft Graph Connect サンプル](https://github.com/MicrosoftGraph?utf8=%E2%9C%93&query=-Connect)
 - [Microsoft Graph の概要](http://graph.microsoft.io)
@@ -141,7 +141,7 @@ Xamarin.Forms プロジェクト用 Microsoft Graph Connect のサンプルに�
 - [Office デベロッパー センター](http://dev.office.com/)
 
 
-##<a name="copyright"></a>著作権
+## <a name="copyright"></a>著作権
 Copyright (c) 2016 Microsoft. All rights reserved.
 
 

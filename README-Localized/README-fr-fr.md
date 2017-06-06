@@ -1,6 +1,6 @@
-﻿#<a name="microsoft-graph-connect-sample-for-xamarin-forms"></a>Exemple de connexion de Microsoft Graph pour Xamarin Forms
+# <a name="microsoft-graph-connect-sample-for-xamarin-forms"></a>Exemple de connexion de Microsoft Graph pour Xamarin Forms
 
-##<a name="table-of-contents"></a>Sommaire
+## <a name="table-of-contents"></a>Sommaire
 
 * [Introduction](#introduction)
 * [Conditions préalables](#prerequisites)
@@ -10,7 +10,7 @@
 * [Ressources supplémentaires](#additional-resources)
 
 <a name="introduction"></a>
-##<a name="introduction"></a>Introduction
+## <a name="introduction"></a>Introduction
 
 Cet exemple montre comment connecter une application Xamarin Forms à un compte professionnel ou scolaire (Azure Active Directory), ou personnel (Microsoft) à l’aide de l’API Microsoft Graph pour récupérer l’image de profil d’un utilisateur, télécharger l’image vers OneDrive et envoyer un courrier électronique contenant la photo en tant que pièce jointe et le lien de partage dans son texte. Il utilise le [kit de développement logiciel Microsoft Graph .NET Client](https://github.com/microsoftgraph/msgraph-sdk-dotnet) pour fonctionner avec les données renvoyées par Microsoft Graph.
 
@@ -23,7 +23,7 @@ Si vous souhaitez utiliser MSAL dans une application Xamarin Forms, suivez [les 
 La bibliothèque peut être utilisée dans un environnement de production. Nous fournissons la même prise en charge du niveau de production pour cette bibliothèque que pour nos bibliothèques de production actuelles. Lors de la version d’essai, nous pouvons apporter des modifications à l’API, au format de cache interne et à d’autres mécanismes de cette bibliothèque que vous devrez prendre en compte avec les correctifs de bogues ou les améliorations de fonctionnalités. Cela peut avoir un impact sur votre application. Par exemple, une modification du format de cache peut avoir un impact sur vos utilisateurs. Par exemple, il peut leur être demandé de se connecter à nouveau. Une modification de l’API peut vous obliger à mettre à jour votre code. Lorsque nous fournissons la version de disponibilité générale, vous devez effectuer une mise à jour vers la version de disponibilité générale dans un délai de six mois, car les applications écrites à l’aide de la version d’évaluation de la bibliothèque ne fonctionneront plus.
 
 <a name="prerequisites"></a>
-##<a name="prerequisites"></a>Conditions préalables ##
+## <a name="prerequisites"></a>Conditions préalables ##
 
 Cet exemple nécessite les éléments suivants :  
 
@@ -43,7 +43,7 @@ Si vous souhaitez exécuter le projet iOS dans cet exemple, vous avez besoin des
 Vous pouvez utiliser l’[émulateur Visual Studio pour Android](https://www.visualstudio.com/features/msft-android-emulator-vs.aspx) si vous souhaitez exécuter le projet Android.
 
 <a name="register"></a>
-##<a name="register-and-configure-the-app"></a>Enregistrement et configuration de l’application
+## <a name="register-and-configure-the-app"></a>Enregistrement et configuration de l’application
 
 1. Connectez-vous au [portail d’inscription des applications](https://apps.dev.microsoft.com/) en utilisant votre compte personnel, professionnel ou scolaire.
 2. Sélectionnez **Ajouter une application**.
@@ -60,7 +60,7 @@ Vous pouvez utiliser l’[émulateur Visual Studio pour Android](https://www.vis
 7. Cliquez sur **Enregistrer**.
 
 <a name="build"></a>
-##<a name="build-and-debug"></a>Création et débogage ##
+## <a name="build-and-debug"></a>Création et débogage ##
 
 **Remarque :** si vous constatez des erreurs pendant l’installation des packages à l’étape 12, vérifiez que le chemin d’accès local où vous avez sauvegardé la solution n’est pas trop long/profond. Pour résoudre ce problème, il vous suffit de déplacer la solution dans un dossier plus près du répertoire racine de votre lecteur.
 
@@ -92,7 +92,7 @@ Vous pouvez utiliser l’[émulateur Visual Studio pour Android](https://www.vis
 | --- | ------- | ----|
 | <img src="/readme-images/UWP.png" alt="Connect sample on UWP" width="100%" /> | <img src="/readme-images/Droid.png" alt="Connect sample on Android" width="100%" /> | <img src="/readme-images/iOS.png" alt="Connect sample on iOS" width="100%" /> |
 
-###<a name="summary-of-key-methods"></a>Résumé des méthodes clés
+### <a name="summary-of-key-methods"></a>Résumé des méthodes clés
 
 Le code dans la page principale de l’application est relativement direct et explicatif, puisque les appels de service de messagerie et d’authentification se produisent dans les classes d’assistance. Le code de la page principale se compose essentiellement des gestionnaires d’événements pour les deux boutons :
 
@@ -119,14 +119,14 @@ Dans cette optique, il est intéressant d’examiner un peu plus en détail les 
     Cette méthode de la classe **MailHelper** compose et envoie l’exemple d’e-mail.
 
 <a name="contributing"></a>
-##<a name="contributing"></a>Contribution ##
+## <a name="contributing"></a>Contribution ##
 
 Si vous souhaitez contribuer à cet exemple, voir [CONTRIBUTING.MD](/CONTRIBUTING.md).
 
 Ce projet a adopté le [code de conduite Microsoft Open Source](https://opensource.microsoft.com/codeofconduct/). Pour plus d’informations, reportez-vous à la [FAQ relative au code de conduite](https://opensource.microsoft.com/codeofconduct/faq/) ou contactez [opencode@microsoft.com](mailto:opencode@microsoft.com) pour toute question ou tout commentaire.
 
 <a name="questions"></a>
-##<a name="questions-and-comments"></a>Questions et commentaires
+## <a name="questions-and-comments"></a>Questions et commentaires
 
 Nous serions ravis de connaître votre opinion sur l’exemple de connexion Microsoft Graph pour Xamarin Forms. Vous pouvez nous faire part de vos questions et suggestions dans la rubrique [Problèmes](https://github.com/MicrosoftGraph/xamarin-csharp-connect-sample/issues) de ce référentiel.
 
@@ -141,7 +141,7 @@ Votre avis compte beaucoup pour nous. Communiquez avec nous sur [Stack Overflow]
 - [Centre de développement Office](http://dev.office.com/)
 
 
-##<a name="copyright"></a>Copyright
+## <a name="copyright"></a>Copyright
 Copyright (c) 2016 Microsoft. Tous droits réservés.
 
 

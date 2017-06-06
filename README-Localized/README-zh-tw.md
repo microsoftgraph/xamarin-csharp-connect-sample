@@ -1,6 +1,6 @@
-﻿#<a name="microsoft-graph-connect-sample-for-xamarin-forms"></a>Microsoft Graph Connect 範例 (適用於 Xamarin Forms)
+# <a name="microsoft-graph-connect-sample-for-xamarin-forms"></a>Microsoft Graph Connect 範例 (適用於 Xamarin Forms)
 
-##<a name="table-of-contents"></a>目錄
+## <a name="table-of-contents"></a>目錄
 
 * [簡介](#introduction)
 * [必要條件](#prerequisites)
@@ -10,7 +10,7 @@
 * [其他資源](#additional-resources)
 
 <a name="introduction"></a>
-##<a name="introduction"></a>簡介
+## <a name="introduction"></a>簡介
 
 這個範例會顯示如何使用 Microsoft Graph API 將 Xamarin Forms 應用程式連線至 Microsoft 工作或學校 (Azure Active Directory) 或個人 (Microsoft) 帳戶，用來擷取使用者的基本資料圖片、將圖片上傳至 OneDrive，並傳送含有相片作為附件且文字中包含共用連結的電子郵件。 它會使用 [Microsoft Graph.NET 用戶端 SDK](https://github.com/microsoftgraph/msgraph-sdk-dotnet)，使用 Microsoft Graph 所傳回的資料。
 
@@ -18,12 +18,12 @@
 
 如果您想要在自己的 Xamarin Forms 應用程式中使用 MSAL，請遵循[這些指示以設定 Xamarin Forms 專案與 MSAL](https://github.com/microsoftgraph/xamarin-csharp-connect-sample/wiki/Set-up-a-Xamarin-Forms-project-to-use-the-MSAL-.NET-SDK)。
 
-##<a name="important-note-about-the-msal-preview"></a>MSAL 預覽相關的重要事項
+## <a name="important-note-about-the-msal-preview"></a>MSAL 預覽相關的重要事項
 
 這個程式庫適合在實際執行環境中使用。 我們為我們目前的實際執行程式庫提供與此程式庫相同的實際執行層級支援。 在預覽期間，我們可能會變更此程式庫的 API、內部快取格式和其他機制，您將必須對此程式庫進行錯誤修復或增強功能。 這可能會影響您的應用程式。 舉例來說，變更快取格式可能會影響您的使用者，例如需要使用者重新登入。 API 變更可能需要更新您的程式碼。 當我們提供「一般可用性」版本時，將要求您在六個月內更新至「一般可用性」版本，因為使用程式庫預覽版本所撰寫的應用程式可能無法運作。
 
 <a name="prerequisites"></a>
-##<a name="prerequisites"></a>必要條件 ##
+## <a name="prerequisites"></a>必要條件 ##
 
 此範例需要下列項目：  
 
@@ -43,7 +43,7 @@
 如果您想要執行 Android 專案，您可以使用[適用於 Android 的 Visual Studio 模擬器](https://www.visualstudio.com/features/msft-android-emulator-vs.aspx)。
 
 <a name="register"></a>
-##<a name="register-and-configure-the-app"></a>註冊和設定應用程式
+## <a name="register-and-configure-the-app"></a>註冊和設定應用程式
 
 1. 使用您的個人或工作或學校帳戶登入[應用程式註冊入口網站](https://apps.dev.microsoft.com/)。
 2. 選取 [新增應用程式]****。
@@ -60,7 +60,7 @@
 7. 選取 [儲存]****。
 
 <a name="build"></a>
-##<a name="build-and-debug"></a>建置和偵錯 ##
+## <a name="build-and-debug"></a>建置和偵錯 ##
 
 **附註：**如果您在步驟 12 安裝封裝時看到任何錯誤，請確定您放置解決方案的本機路徑不會太長/太深。將解決方案移靠近您的磁碟機根目錄可解決這個問題。
 
@@ -92,7 +92,7 @@
 | --- | ------- | ----|
 | <img src="/readme-images/UWP.png" alt="Connect sample on UWP" width="100%" /> | <img src="/readme-images/Droid.png" alt="Connect sample on Android" width="100%" /> | <img src="/readme-images/iOS.png" alt="Connect sample on iOS" width="100%" /> |
 
-###<a name="summary-of-key-methods"></a>主要方法的摘要
+### <a name="summary-of-key-methods"></a>主要方法的摘要
 
 應用程式的主頁面中的程式碼相當直覺且淺顯易懂，因為驗證和電子郵件服務的呼叫確實在協助程式類別中發生。主頁面程式碼主要包含兩個按鈕的事件處理常式：
 
@@ -119,21 +119,21 @@
     **MailHelper** 類別的這個方法會撰寫並傳送範例電子郵件。
 
 <a name="contributing"></a>
-##<a name="contributing"></a>參與 ##
+## <a name="contributing"></a>參與 ##
 
 如果您想要參與這個範例，請參閱 [CONTRIBUTING.MD](/CONTRIBUTING.md)。
 
 此專案已採用 [Microsoft 開放原始碼執行](https://opensource.microsoft.com/codeofconduct/)。如需詳細資訊，請參閱[程式碼執行常見問題集](https://opensource.microsoft.com/codeofconduct/faq/)，如果有其他問題或意見，請連絡 [opencode@microsoft.com](mailto:opencode@microsoft.com)。
 
 <a name="questions"></a>
-##<a name="questions-and-comments"></a>問題和建議
+## <a name="questions-and-comments"></a>問題和建議
 
 我們很樂於收到您對於 Microsoft Graph Connect 範例 (適用於 Xamarin Forms) 專案的意見反應。您可以在此儲存機制的[問題](https://github.com/MicrosoftGraph/xamarin-csharp-connect-sample/issues)區段中，將您的問題及建議傳送給我們。
 
 我們很重視您的意見。請透過 [Stack Overflow](http://stackoverflow.com/questions/tagged/office365+or+microsoftgraph) 與我們連絡。以 [MicrosoftGraph] 標記您的問題。
 
 <a name="additional-resources"></a>
-##<a name="additional-resources"></a>其他資源 ##
+## <a name="additional-resources"></a>其他資源 ##
 
 - [其他 Microsoft Graph connect 範例](https://github.com/MicrosoftGraph?utf8=%E2%9C%93&query=-Connect)
 - [Microsoft Graph 概觀](http://graph.microsoft.io)
@@ -141,7 +141,7 @@
 - [Office 開發人員中心](http://dev.office.com/)
 
 
-##<a name="copyright"></a>著作權
+## <a name="copyright"></a>著作權
 Copyright (c) 2016 Microsoft.著作權所有，並保留一切權利。
 
 

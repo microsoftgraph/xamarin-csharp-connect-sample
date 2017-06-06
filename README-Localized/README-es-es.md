@@ -1,6 +1,6 @@
-﻿#<a name="microsoft-graph-connect-sample-for-xamarin-forms"></a>Ejemplo de conexión de Microsoft Graph para Xamarin Forms
+# <a name="microsoft-graph-connect-sample-for-xamarin-forms"></a>Ejemplo de conexión de Microsoft Graph para Xamarin Forms
 
-##<a name="table-of-contents"></a>Tabla de contenido
+## <a name="table-of-contents"></a>Tabla de contenido
 
 * [Introducción](#introduction)
 * [Requisitos previos](#prerequisites)
@@ -10,7 +10,7 @@
 * [Recursos adicionales](#additional-resources)
 
 <a name="introduction"></a>
-##<a name="introduction"></a>Introducción
+## <a name="introduction"></a>Introducción
 
 Este ejemplo muestra cómo conectar una aplicación Xamarin Forms a una cuenta profesional o educativa de Microsoft (Azure Active Directory) o a una cuenta personal (Microsoft) usando la API de Microsoft Graph para recuperar la imagen del perfil de un usuario, cargar la imagen en OneDrive y enviar un correo electrónico que contiene la foto como un archivo adjunto y el vínculo para compartir en su texto. Usa el [SDK del cliente de Microsoft Graph .NET](https://github.com/microsoftgraph/msgraph-sdk-dotnet) para trabajar con los datos devueltos por Microsoft Graph.
 
@@ -23,7 +23,7 @@ Si desea trabajar con MSAL en una aplicación de Xamarin Forms de su elección, 
 Esta biblioteca es apta para utilizarla en un entorno de producción. Ofrecemos la misma compatibilidad de nivel de producción de esta biblioteca que la de las bibliotecas de producción actual. Durante la vista previa podemos realizar cambios en la API, el formato de caché interna y otros mecanismos de esta biblioteca, que deberá tomar junto con correcciones o mejoras. Esto puede afectar a la aplicación. Por ejemplo, un cambio en el formato de caché puede afectar a los usuarios, como que se les pida que vuelvan a iniciar sesión. Un cambio de API puede requerir que actualice su código. Cuando ofrecemos la versión de disponibilidad General, deberá actualizar a la versión de disponibilidad General dentro de seis meses, ya que las aplicaciones escritas mediante una versión de vista previa de biblioteca puede que ya no funcionen.
 
 <a name="prerequisites"></a>
-##<a name="prerequisites"></a>Requisitos previos ##
+## <a name="prerequisites"></a>Requisitos previos ##
 
 Este ejemplo necesita lo siguiente:  
 
@@ -43,7 +43,7 @@ Si desea ejecutar el proyecto de iOS en este ejemplo, necesita lo siguiente:
 Puede usar el [emulador de Visual Studio para Android](https://www.visualstudio.com/features/msft-android-emulator-vs.aspx) si desea ejecutar el proyecto Android.
 
 <a name="register"></a>
-##<a name="register-and-configure-the-app"></a>Registrar y configurar la aplicación
+## <a name="register-and-configure-the-app"></a>Registrar y configurar la aplicación
 
 1. Inicie sesión en el [Portal de registro de la aplicación](https://apps.dev.microsoft.com/) mediante su cuenta personal, profesional o educativa.
 2. Seleccione **Agregar una aplicación**.
@@ -60,7 +60,7 @@ Puede usar el [emulador de Visual Studio para Android](https://www.visualstudio.
 7. Seleccione **Guardar**.
 
 <a name="build"></a>
-##<a name="build-and-debug"></a>Compilar y depurar ##
+## <a name="build-and-debug"></a>Compilar y depurar ##
 
 **Nota:** Si observa algún error durante la instalación de los paquetes en el paso 12, asegúrese de que la ruta de acceso local donde colocó la solución no es demasiado larga o profunda. Para resolver este problema, mueva la solución más cerca de la raíz de la unidad.
 
@@ -92,7 +92,7 @@ Puede usar el [emulador de Visual Studio para Android](https://www.visualstudio.
 | --- | ------- | ----|
 | <img src="/readme-images/UWP.png" alt="Connect sample on UWP" width="100%" /> | <img src="/readme-images/Droid.png" alt="Connect sample on Android" width="100%" /> | <img src="/readme-images/iOS.png" alt="Connect sample on iOS" width="100%" /> |
 
-###<a name="summary-of-key-methods"></a>Resumen de métodos clave
+### <a name="summary-of-key-methods"></a>Resumen de métodos clave
 
 El código en la página principal de la aplicación es relativamente sencillo y fácil de entender, ya que las llamadas de servicio de autenticación y el correo electrónico realmente se producen en las clases auxiliares. El código de la página principal se compone principalmente de controladores de eventos para los dos botones:
 
@@ -119,21 +119,21 @@ Teniendo esto en cuenta, es importante examinar dos métodos de las clases auxil
     Este método de la clase **MailHelper** redacta y envía el correo electrónico de ejemplo.
 
 <a name="contributing"></a>
-##<a name="contributing"></a>Colaboradores ##
+## <a name="contributing"></a>Colaboradores ##
 
 Si le gustaría contribuir a este ejemplo, consulte [CONTRIBUTING.MD](/CONTRIBUTING.md).
 
 Este proyecto ha adoptado el [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/) (Código de conducta de código abierto de Microsoft). Para obtener más información, consulte las [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) (Preguntas más frecuentes del código de conducta) o póngase en contacto con [opencode@microsoft.com](mailto:opencode@microsoft.com) con otras preguntas o comentarios.
 
 <a name="questions"></a>
-##<a name="questions-and-comments"></a>Preguntas y comentarios
+## <a name="questions-and-comments"></a>Preguntas y comentarios
 
 Nos encantaría recibir sus comentarios acerca del ejemplo de Connect de Microsoft Graph para el proyecto Xamarin Forms. Puede enviarnos sus preguntas y sugerencias a través de la sección [Problemas](https://github.com/MicrosoftGraph/xamarin-csharp-connect-sample/issues) de este repositorio.
 
 Su opinión es importante para nosotros. Conecte con nosotros en [Desbordamiento de pila](http://stackoverflow.com/questions/tagged/office365+or+microsoftgraph). Etiquete sus preguntas con [MicrosoftGraph].
 
 <a name="additional-resources"></a>
-##<a name="additional-resources"></a>Recursos adicionales ##
+## <a name="additional-resources"></a>Recursos adicionales ##
 
 - [Otros ejemplos de Connect de Microsoft Graph](https://github.com/MicrosoftGraph?utf8=%E2%9C%93&query=-Connect)
 - [Información general de Microsoft Graph](http://graph.microsoft.io)
@@ -141,7 +141,7 @@ Su opinión es importante para nosotros. Conecte con nosotros en [Desbordamiento
 - [Centro de desarrollo de Office](http://dev.office.com/)
 
 
-##<a name="copyright"></a>Copyright
+## <a name="copyright"></a>Copyright
 Copyright (c) 2016 Microsoft. Todos los derechos reservados.
 
 
