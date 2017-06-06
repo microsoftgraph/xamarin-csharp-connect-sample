@@ -10,7 +10,7 @@
 * [Weitere Ressourcen](#additional-resources)
 
 <a name="introduction"></a>
-##<a name="introduction"></a>Einführung
+## <a name="introduction"></a>Einführung
 
 Dieses Beispiel zeigt, wie Sie eine Xamarin Forms-App mit einem Microsoft-Geschäfts-, Schul- oder Unikonto (Azure Active Directory) oder einem persönlichen (Microsoft) Konto anhand der Microsoft Graph API verbinden, um das Profilbild eines Benutzers abzurufen, das Bild in OneDrive hochzuladen und eine E-Mail zu senden, das das Foto als Anhang und den Freigabelink als Text enthält. Es verwendet das [Microsoft Graph .NET-Client-SDK](https://github.com/microsoftgraph/msgraph-sdk-dotnet), um mit Daten zu arbeiten, die von Microsoft Graph zurückgegeben werden.
 
