@@ -1,4 +1,4 @@
-# <a name="microsoft-graph-connect-sample-for-xamarin-forms"></a>Ejemplo de conexión de Microsoft Graph para Xamarin Forms
+﻿#<a name="microsoft-graph-connect-sample-for-xamarin-forms"></a>Ejemplo de conexión de Microsoft Graph para Xamarin Forms
 
 ##<a name="table-of-contents"></a>Tabla de contenido
 
@@ -12,17 +12,18 @@
 <a name="introduction"></a>
 ##<a name="introduction"></a>Introducción
 
-Este ejemplo muestra cómo conectar una aplicación de Xamarin Forms a una cuenta de Microsoft profesional o educativa (Azure Active Directory) o a una cuenta personal (Microsoft) usando la API de Microsoft Graph para enviar un correo electrónico. Usa el [SDK del cliente de Microsoft Graph .NET](https://github.com/microsoftgraph/msgraph-sdk-dotnet) para trabajar con los datos devueltos por Microsoft Graph.
+Este ejemplo muestra cómo conectar una aplicación Xamarin Forms a una cuenta profesional o educativa de Microsoft (Azure Active Directory) o a una cuenta personal (Microsoft) usando la API de Microsoft Graph para recuperar la imagen del perfil de un usuario, cargar la imagen en OneDrive y enviar un correo electrónico que contiene la foto como un archivo adjunto y el vínculo para compartir en su texto. Usa el [SDK del cliente de Microsoft Graph .NET](https://github.com/microsoftgraph/msgraph-sdk-dotnet) para trabajar con los datos devueltos por Microsoft Graph.
 
 Además, el ejemplo usa la [biblioteca de autenticación de Microsoft (MSAL)](https://www.nuget.org/packages/Microsoft.Identity.Client/) para la autenticación. El SDK de MSAL ofrece características para trabajar con el [punto de conexión v2.0 de Azure AD](https://msdn.microsoft.com/office/office365/howto/authenticate-Office-365-APIs-using-v2), lo que permite a los desarrolladores escribir un flujo de código único que controla la autenticación para las cuentas profesionales, educativas y personales.
 
 Si desea trabajar con MSAL en una aplicación de Xamarin Forms de su elección, siga [estas instrucciones para configurar un proyecto de Xamarin Forms con MSAL](https://github.com/microsoftgraph/xamarin-csharp-connect-sample/wiki/Set-up-a-Xamarin-Forms-project-to-use-the-MSAL-.NET-SDK).
 
- > **Nota** El SDK de MSAL está actualmente en versión preliminar y, por tanto, no debe usarse en código de producción. Se usa aquí únicamente con fines ilustrativos.
+## <a name="important-note-about-the-msal-preview"></a>Nota importante acerca de la vista previa MSAL
 
+Esta biblioteca es apta para utilizarla en un entorno de producción. Ofrecemos la misma compatibilidad de nivel de producción de esta biblioteca que la de las bibliotecas de producción actual. Durante la vista previa podemos realizar cambios en la API, el formato de caché interna y otros mecanismos de esta biblioteca, que deberá tomar junto con correcciones o mejoras. Esto puede afectar a la aplicación. Por ejemplo, un cambio en el formato de caché puede afectar a los usuarios, como que se les pida que vuelvan a iniciar sesión. Un cambio de API puede requerir que actualice su código. Cuando ofrecemos la versión de disponibilidad General, deberá actualizar a la versión de disponibilidad General dentro de seis meses, ya que las aplicaciones escritas mediante una versión de vista previa de biblioteca puede que ya no funcionen.
 
 <a name="prerequisites"></a>
-## <a name="prerequisites"></a>Requisitos previos ##
+##<a name="prerequisites"></a>Requisitos previos ##
 
 Este ejemplo necesita lo siguiente:  
 
@@ -35,7 +36,7 @@ Si desea ejecutar el proyecto de iOS en este ejemplo, necesita lo siguiente:
 
   * El SDK de iOS más reciente
   * La versión de Xcode más reciente
-  * Mac OS X Yosemite(10.10) y superior 
+  * Mac OS X Yosemite (10.10) o superior 
   * [Xamarin.iOS](https://developer.xamarin.com/guides/ios/getting_started/installation/mac/)
   * Un [agente Xamarin Mac conectado a Visual Studio](https://developer.xamarin.com/guides/ios/getting_started/installation/windows/connecting-to-mac/)
 
@@ -46,22 +47,22 @@ Puede usar el [emulador de Visual Studio para Android](https://www.visualstudio.
 
 1. Inicie sesión en el [Portal de registro de la aplicación](https://apps.dev.microsoft.com/) mediante su cuenta personal, profesional o educativa.
 2. Seleccione **Agregar una aplicación**.
-3. Escriba un nombre para la aplicación y seleccione **Crear aplicación**.
+3. Escriba un nombre para la aplicación y seleccione **Crear**.
     
     Se muestra la página de registro, indicando las propiedades de la aplicación.
  
 4. En **Plataformas**, seleccione **Agregar plataforma**.
-5. Seleccione **Aplicación móvil**.
-6. Copie el valor del Id. de cliente (Id. de la aplicación) en el portapapeles. Deberá especificar estos valores en la aplicación de ejemplo.
+5. Seleccione **Aplicación nativa**.
+6. Copie el valor del identificador de la aplicación y el valor personalizado redirección URI (en el encabezado **Aplicación nativa** encabezado) que se crea automáticamente cuando agrega la plataforma de **Aplicación nativa**. Este identificador URI debe contener el valor de identificador de la aplicación y estar en este formulario: `msal<Application Id>://auth` Deberá escribir estos valores en la aplicación de ejemplo.
 
     El id. de la aplicación es un identificador único para su aplicación.
 
 7. Seleccione **Guardar**.
 
 <a name="build"></a>
-## <a name="build-and-debug"></a>Compilar y depurar ##
+##<a name="build-and-debug"></a>Compilar y depurar ##
 
-**Nota:** Si observa algún error durante la instalación de los paquetes en el paso 2, asegúrese de que la ruta de acceso local donde colocó la solución no es demasiado larga o profunda. Para resolver este problema, mueva la solución más cerca de la raíz de la unidad.
+**Nota:** Si observa algún error durante la instalación de los paquetes en el paso 12, asegúrese de que la ruta de acceso local donde colocó la solución no es demasiado larga o profunda. Para resolver este problema, mueva la solución más cerca de la raíz de la unidad.
 
 1. Abra el archivo App.cs dentro del proyecto **XamarinConnect (portátil)** de la solución.
 
@@ -72,11 +73,19 @@ Puede usar el [emulador de Visual Studio para Android](https://www.visualstudio.
 
     ![](/readme-images/appId.png "Client ID value in App.cs file")
 
-3. Seleccione el proyecto que desea ejecutar. Si selecciona la opción de plataforma universal de Windows, puede ejecutar el ejemplo en el equipo local. Si desea ejecutar el proyecto iOS, necesitará conectarse a un [Mac que tenga las herramientas Xamarin](https://developer.xamarin.com/guides/ios/getting_started/installation/windows/connecting-to-mac/) instaladas. (También puede abrir esta solución en Xamarin Studio en un Mac y ejecutar el ejemplo directamente desde allí). Puede usar el [emulador de Visual Studio para Android](https://www.visualstudio.com/features/msft-android-emulator-vs.aspx) si desea ejecutar el proyecto Android. 
+3. Abra el archivo UserDetailsClient.iOS\info.plist en un editor de texto. Lamentablemente no puede editar este archivo en Visual Studio. Busque el elemento `<string>msalENTER_YOUR_CLIENT_ID</string>` en `CFBundleURLSchemes` clave.
+
+4. Reemplace `ENTER_YOUR_CLIENT_ID` con el valor de id de aplicación que obtuvo al registrar la aplicación. Asegúrese de conservar `msal` antes del identificador de aplicación. El valor de cadena resultante debe parecerse al siguiente: `<string>msal<application id></string>`.
+
+5. Abra el archivo UserDetailsClient.Droid\Properties\AndroidManifest.xml. Busque este elemento: `<data android:scheme="msalENTER_YOUR_CLIENT_ID" android:host="auth" />`.
+
+6. Reemplace `ENTER_YOUR_CLIENT_ID` con el valor de id de aplicación que obtuvo al registrar la aplicación. Asegúrese de conservar `msal` antes del identificador de aplicación. El valor de cadena resultante debe parecerse al siguiente: `<data android:scheme="msal<application id>" android:host="auth" />`.
+
+7. Seleccione el proyecto que desee ejecutar. Si selecciona la opción de plataforma universal de Windows, puede ejecutar el ejemplo en el equipo local. Si desea ejecutar el proyecto iOS, necesitará conectarse a un [Mac que tenga las herramientas Xamarin](https://developer.xamarin.com/guides/ios/getting_started/installation/windows/connecting-to-mac/) instaladas. (También puede abrir esta solución en Xamarin Studio en un Mac y ejecutar el ejemplo directamente desde allí). Puede usar el [Emulador de Visual Studio para Android](https://www.visualstudio.com/features/msft-android-emulator-vs.aspx) si desea ejecutar el proyecto de Android. 
 
     ![](/readme-images/SelectProject.png "Select project in Visual Studio")
 
-4. Presione F5 para compilar y depurar. Ejecute la solución e inicie sesión con su cuenta personal, profesional o educativa.
+8. Pulse F5 para compilar y depurar. Ejecute la solución e inicie sesión con su cuenta personal, profesional o educativa.
     > **Nota** Es posible que tenga que abrir el administrador de configuración de compilación para asegurarse de que los pasos de compilación e implementación están seleccionados para el proyecto UWP.
 
 | UWP | Android | iOS |
@@ -110,21 +119,21 @@ Teniendo esto en cuenta, es importante examinar dos métodos de las clases auxil
     Este método de la clase **MailHelper** redacta y envía el correo electrónico de ejemplo.
 
 <a name="contributing"></a>
-## <a name="contributing"></a>Colaboradores ##
+##<a name="contributing"></a>Colaboradores ##
 
 Si le gustaría contribuir a este ejemplo, consulte [CONTRIBUTING.MD](/CONTRIBUTING.md).
 
 Este proyecto ha adoptado el [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/) (Código de conducta de código abierto de Microsoft). Para obtener más información, consulte las [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) (Preguntas más frecuentes del código de conducta) o póngase en contacto con [opencode@microsoft.com](mailto:opencode@microsoft.com) con otras preguntas o comentarios.
 
 <a name="questions"></a>
-## <a name="questions-and-comments"></a>Preguntas y comentarios
+##<a name="questions-and-comments"></a>Preguntas y comentarios
 
 Nos encantaría recibir sus comentarios acerca del ejemplo de Connect de Microsoft Graph para el proyecto Xamarin Forms. Puede enviarnos sus preguntas y sugerencias a través de la sección [Problemas](https://github.com/MicrosoftGraph/xamarin-csharp-connect-sample/issues) de este repositorio.
 
-Sus comentarios son importantes para nosotros. Conecte con nosotros en [Stack Overflow](http://stackoverflow.com/questions/tagged/office365+or+microsoftgraph). Etiquete sus preguntas con [MicrosoftGraph].
+Su opinión es importante para nosotros. Conecte con nosotros en [Desbordamiento de pila](http://stackoverflow.com/questions/tagged/office365+or+microsoftgraph). Etiquete sus preguntas con [MicrosoftGraph].
 
 <a name="additional-resources"></a>
-## <a name="additional-resources"></a>Recursos adicionales ##
+##<a name="additional-resources"></a>Recursos adicionales ##
 
 - [Otros ejemplos de Connect de Microsoft Graph](https://github.com/MicrosoftGraph?utf8=%E2%9C%93&query=-Connect)
 - [Información general de Microsoft Graph](http://graph.microsoft.io)
@@ -132,7 +141,7 @@ Sus comentarios son importantes para nosotros. Conecte con nosotros en [Stack Ov
 - [Centro de desarrollo de Office](http://dev.office.com/)
 
 
-## <a name="copyright"></a>Copyright
+##<a name="copyright"></a>Copyright
 Copyright (c) 2016 Microsoft. Todos los derechos reservados.
 
 
