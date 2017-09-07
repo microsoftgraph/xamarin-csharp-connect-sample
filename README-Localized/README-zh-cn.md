@@ -12,7 +12,7 @@
 <a name="introduction"></a>
 ## <a name="introduction"></a>简介
 
-此示例展示了如何使用 Microsoft Graph API 将 Xamarin Forms 应用连接到 Microsoft 工作或学校帐户 (Azure Active Directory) 或个人 (Microsoft) 帐户，从而检索用户的个人资料照片，将此照片上传到 OneDrive，并发送将此照片作为附件且文本中包含共享链接的电子邮件。 它使用 [Microsoft Graph .NET 客户端 SDK](https://github.com/microsoftgraph/msgraph-sdk-dotnet) 来处理 Microsoft Graph 返回的数据。
+此示例展示了如何使用 Microsoft Graph API 将 Xamarin Forms 应用连接到 Microsoft 工作或学校帐户 (Azure Active Directory) 或个人 (Microsoft) 帐户，从而检索用户的个人资料照片，将此照片上传到 OneDrive，并发送将此照片作为附件且文本中包含共享链接的电子邮件。它使用 [Microsoft Graph .NET 客户端 SDK](https://github.com/microsoftgraph/msgraph-sdk-dotnet) 来处理 Microsoft Graph 返回的数据。
 
 此外，此示例使用 [Microsoft 身份验证库 (MSAL)](https://www.nuget.org/packages/Microsoft.Identity.Client/) 进行身份验证。MSAL SDK 提供可使用 [Azure AD v2.0 终结点](https://msdn.microsoft.com/office/office365/howto/authenticate-Office-365-APIs-using-v2)的功能，借助该终结点，开发人员可以编写单个代码流来处理对用户的工作或学校和个人帐户的身份验证。
 
@@ -49,18 +49,18 @@
 2. 选择“添加应用”****。
 3. 输入应用名称，然后选择“创建”****。
     
-    此时，注册页显示，其中列出了应用属性。
+    此时，注册页会显示，并列出应用属性。
  
 4. 在“平台”****下，选择“添加平台”****。
-5. 选择“本机应用”****。
-6. 复制“应用 ID”值，以及在添加“本机应用”****平台时创建的“自定义重定向 URI”值（在“本机应用”****标头下）。 此 URI 应包含应用 ID 值，格式如下：`msal<Application Id>://auth`。需要在示例应用中输入这些值。
+5. 选择“本机应用程序”****。
+6. 复制应用 ID 值，以及在添加“本机应用”平台时创建的自定义重定向 URI 值（在“本机应用”标头下）。此 URI 应包含应用 ID 值，格式如下：。需要在示例应用中输入这些值。
 
     应用 ID 是应用的唯一标识符。
 
 7. 选择“**保存**”。
 
 <a name="build"></a>
-## <a name="build-and-debug"></a>构建和调试 ##
+## <a name="build-and-debug"></a>生成和调试 ##
 
 **注意：**如果在第 12 步安装包时看到任何错误消息，请确保解决方案的本地路径并不是太长/太深。若要解决此问题，可以将解决方案移到更接近驱动器根目录的位置。
 
@@ -73,19 +73,19 @@
 
     ![](/readme-images/appId.png "Client ID value in App.cs file")
 
-3. 在文本编辑器中，打开 UserDetailsClient.iOS\info.plist 文件。 遗憾的是，不能在 Visual Studio 中编辑此文件。 在 `CFBundleURLSchemes` 键下查找 `<string>msalENTER_YOUR_CLIENT_ID</string>` 元素。
+3. 在文本编辑器中，打开 UserDetailsClient.iOS\info.plist 文件。遗憾的是，不能在 Visual Studio 中编辑此文件。在 `CFBundleURLSchemes` 键下查找 `<string>msalENTER_YOUR_CLIENT_ID</string>` 元素。
 
-4. 将 `ENTER_YOUR_CLIENT_ID` 替换成注册应用时获取的应用 ID 值。 请务必保留应用 ID 前面的 `msal`。 生成的字符串值应如下所示：`<string>msal<application id></string>`。
+4. 将 `ENTER_YOUR_CLIENT_ID` 替换成注册应用时获取的应用 ID 值。请务必保留应用 ID 前面的 `msal`。生成的字符串值应如下所示：`<string>msal<application id></string>`。
 
-5. 打开 UserDetailsClient.Droid\Properties\AndroidManifest.xml 文件。 查找以下元素：`<data android:scheme="msalENTER_YOUR_CLIENT_ID" android:host="auth" />`。
+5. 打开 XamarinConnect.Droid\Properties\AndroidManifest.xml 文件。查找以下元素：`<data android:scheme="msalENTER_YOUR_CLIENT_ID" android:host="auth" />`。
 
-6. 将 `ENTER_YOUR_CLIENT_ID` 替换成注册应用时获取的应用 ID 值。 请务必保留应用 ID 前面的 `msal`。 生成的字符串值应如下所示：`<data android:scheme="msal<application id>" android:host="auth" />`。
+6. 将 `ENTER_YOUR_CLIENT_ID` 替换成注册应用时获取的应用 ID 值。请务必保留应用 ID 前面的 `msal`。生成的字符串值应如下所示：`<data android:scheme="msal<application id>" android:host="auth" />`。
 
 7. 选择想要运行的项目。如果选择“通用 Windows 平台”选项，则可以在本地计算机上运行示例。如果想要运行 iOS 项目，则需连接到安装在其上的 [具有 Xamarin 工具的 Mac](https://developer.xamarin.com/guides/ios/getting_started/installation/windows/connecting-to-mac/)。（还可以在 Mac 上的 Xamarin Studio 中打开此解决方案并直接从此处运行示例。）如果想要运行 Android 项目，可以使用[适用于 Android 的 Visual Studio 模拟器](https://www.visualstudio.com/features/msft-android-emulator-vs.aspx)。 
 
     ![](/readme-images/SelectProject.png "Select project in Visual Studio")
 
-8. 按 F5 生成和调试应用。运行此解决方案并使用个人或工作或学校帐户登录。
+8. 按 F5 进行构建和调试。运行此解决方案并使用个人或工作或学校帐户登录。
     > **注意** 可能需要打开生成配置管理器，以确保为 UWP 项目选择“生成”和“部署”步骤。
 
 | UWP | Android | iOS |

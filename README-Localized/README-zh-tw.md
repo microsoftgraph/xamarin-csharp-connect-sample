@@ -12,7 +12,7 @@
 <a name="introduction"></a>
 ## <a name="introduction"></a>簡介
 
-這個範例會顯示如何使用 Microsoft Graph API 將 Xamarin Forms 應用程式連線至 Microsoft 工作或學校 (Azure Active Directory) 或個人 (Microsoft) 帳戶，用來擷取使用者的基本資料圖片、將圖片上傳至 OneDrive，並傳送含有相片作為附件且文字中包含共用連結的電子郵件。 它會使用 [Microsoft Graph.NET 用戶端 SDK](https://github.com/microsoftgraph/msgraph-sdk-dotnet)，使用 Microsoft Graph 所傳回的資料。
+這個範例會顯示如何使用 Microsoft Graph API 將 Xamarin Forms 應用程式連線至 Microsoft 工作或學校 (Azure Active Directory) 或個人 (Microsoft) 帳戶，用來擷取使用者的基本資料圖片、將圖片上傳至 OneDrive，並傳送含有相片作為附件且文字中包含共用連結的電子郵件。它會使用 [Microsoft Graph.NET 用戶端 SDK](https://github.com/microsoftgraph/msgraph-sdk-dotnet)，使用 Microsoft Graph 所傳回的資料。
 
 此外，範例會使用 [Microsoft 驗證程式庫 (MSAL)](https://www.nuget.org/packages/Microsoft.Identity.Client/) 進行驗證。MSAL SDK 提供功能以使用 [Azure AD v2.0 端點](https://msdn.microsoft.com/office/office365/howto/authenticate-Office-365-APIs-using-v2)，可讓開發人員撰寫單一程式碼流程，處理使用者的工作或學校和個人帳戶的驗證。
 
@@ -75,11 +75,11 @@
 
 3. 在文字編輯器中開啟 UserDetailsClient.iOS\info.plist 檔案。 不幸的是，您無法在 Visual Studio 中編輯這個檔案。 在 `CFBundleURLSchemes` 機碼下找到的 `<string>msalENTER_YOUR_CLIENT_ID</string>` 元素。
 
-4. 將 `ENTER_YOUR_CLIENT_ID` 取代註冊您的應用程式時所獲得的應用程式識別碼值。 請務必在應用程式識別碼之前保留 `msal`。 產生的字串值應如下所示︰`<string>msal<application id></string>`。
+4. 將 `ENTER_YOUR_CLIENT_ID` 取代註冊您的應用程式時所獲得的應用程式識別碼值。 請務必在應用程式識別碼之前保留 `msal`。產生的字串值應如下所示︰ `<string>msal<application id></string>`。
 
-5. 開啟 UserDetailsClient.Droid\Properties\AndroidManifest.xml 檔案。 找到此元素︰`<data android:scheme="msalENTER_YOUR_CLIENT_ID" android:host="auth" />`。
+5. 開啟 XamarinConnect.Droid\Properties\AndroidManifest.xml 檔案。 找到此元素︰`<data android:scheme="msalENTER_YOUR_CLIENT_ID" android:host="auth" />`。
 
-6. 將 `ENTER_YOUR_CLIENT_ID` 取代註冊您的應用程式時所獲得的應用程式識別碼值。 請務必在應用程式識別碼之前保留 `msal`。 產生的字串值應如下所示︰`<data android:scheme="msal<application id>" android:host="auth" />`。
+6. 將 `ENTER_YOUR_CLIENT_ID` 取代註冊您的應用程式時所獲得的應用程式識別碼值。 請務必在應用程式識別碼之前保留 `msal`。產生的字串值應如下所示︰`<data android:scheme="msal<application id>" android:host="auth" />`。
 
 7. 選取您要執行的專案。如果您選取 [通用 Windows 平台] 選項，您可以在本機機器上執行範例。如果您想要執行 iOS 專案，您必須連接至[已安裝 Xamarin 工具的 Mac](https://developer.xamarin.com/guides/ios/getting_started/installation/windows/connecting-to-mac/)。(您也可以在 Mac 上，在 Xamarin Studio 中開啟此解決方案，然後直接從那裡執行範例。)如果您想要執行 Android 專案，您可以使用[適用於 Android 的 Visual Studio 模擬器](https://www.visualstudio.com/features/msft-android-emulator-vs.aspx)。 
 

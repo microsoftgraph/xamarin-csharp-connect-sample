@@ -75,11 +75,11 @@ Vous pouvez utiliser l’[émulateur Visual Studio pour Android](https://www.vis
 
 3. Ouvrez le fichier UserDetailsClient.iOS\info.plist dans un éditeur de texte. Malheureusement, vous ne pouvez pas modifier ce fichier dans Visual Studio. Recherchez l’élément `<string>msalENTER_YOUR_CLIENT_ID</string>` sous la clé `CFBundleURLSchemes`.
 
-4. Remplacez `ENTER_YOUR_CLIENT_ID` avec la valeur d’ID d’application obtenue lorsque vous avez enregistré votre application. Veillez à conserver `msal` avant l’ID d’application. La valeur de chaîne résultante doit ressembler à ceci : `<string>msal<application id></string>`.
+4. Remplacez `ENTER_YOUR_CLIENT_ID` avec la valeur d’ID d’application obtenue lorsque vous avez enregistré votre application. Veillez à conserver `msal` avant l’ID d’application. La valeur de chaîne obtenue doit ressembler à ceci : `<string>msal<application id></string>`.
 
-5. Ouvrez le fichier UserDetailsClient.Droid\Properties\AndroidManifest.xml. Recherchez l’élément suivant : `<data android:scheme="msalENTER_YOUR_CLIENT_ID" android:host="auth" />`.
+5. Ouvrez le fichier XamarinConnect.Droid\Properties\AndroidManifest.xml. Recherchez l’élément suivant : `<data android:scheme="msalENTER_YOUR_CLIENT_ID" android:host="auth" />`.
 
-6. Remplacez `ENTER_YOUR_CLIENT_ID` avec la valeur d’ID d’application obtenue lorsque vous avez enregistré votre application. Veillez à conserver `msal` avant l’ID d’application. La valeur de chaîne résultante doit ressembler à ceci : `<data android:scheme="msal<application id>" android:host="auth" />`.
+6. Remplacez `ENTER_YOUR_CLIENT_ID` avec la valeur d’ID d’application obtenue lorsque vous avez enregistré votre application. Veillez à conserver `msal` avant l’ID d’application. La valeur de chaîne obtenue doit ressembler à ceci : `<data android:scheme="msal<application id>" android:host="auth" />`.
 
 7. Sélectionnez le projet à exécuter. Si vous sélectionnez l’option Plateforme Windows universelle, vous pouvez exécuter l’exemple sur l’ordinateur local. Si vous souhaitez exécuter le projet iOS, vous devez vous connecter à un [Mac sur lequel les outils de Xamarin](https://developer.xamarin.com/guides/ios/getting_started/installation/windows/connecting-to-mac/) ont été installés. (Vous pouvez également ouvrir cette solution dans Xamarin Studio sur un Mac et exécuter l’exemple directement à partir de là.) Vous pouvez utiliser l’[émulateur Visual Studio pour Android](https://www.visualstudio.com/features/msft-android-emulator-vs.aspx) si vous souhaitez exécuter le projet Android. 
 

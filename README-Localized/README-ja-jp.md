@@ -12,7 +12,7 @@
 <a name="introduction"></a>
 ## <a name="introduction"></a>概要
 
-このサンプルでは、Microsoft Graph API を使って Xamarin Forms アプリを Microsoft の職場または学校 (Azure Active Directory) アカウントまたは個人用 (Microsoft) アカウントに接続して、ユーザーのプロフィール画像の取得、OneDrive への画像のアップロード、電子メール (画像が添付され、共有リンクがテキストに含まれる) の送信を行う方法を示します。 [Microsoft Graph .NET クライアント SDK](https://github.com/microsoftgraph/msgraph-sdk-dotnet) を使用して、Microsoft Graph が返すデータを操作します。
+このサンプルでは、Microsoft Graph API を使って Xamarin Forms アプリを Microsoft の職場または学校 (Azure Active Directory) アカウントまたは個人用 (Microsoft) アカウントに接続して、ユーザーのプロフィール画像の取得、OneDrive への画像のアップロード、電子メール (画像が添付され、共有リンクがテキストに含まれる) の送信を行う方法を示します。[Microsoft Graph .NET クライアント SDK](https://github.com/microsoftgraph/msgraph-sdk-dotnet) を使用して、Microsoft Graph が返すデータを操作します。
 
 また、サンプルでは認証に [Microsoft 認証ライブラリ (MSAL)](https://www.nuget.org/packages/Microsoft.Identity.Client/) を使用します。MSAL SDK には、[Azure AD v2.0 エンドポイント](https://msdn.microsoft.com/office/office365/howto/authenticate-Office-365-APIs-using-v2)を操作するための機能が用意されており、開発者はユーザーの職場または学校のアカウント、および個人用アカウントの両方に対する認証を処理する 1 つのコード フローを記述することができます。
 
@@ -53,7 +53,7 @@ Android プロジェクトを実行する場合は、[Visual Studio Emulator for
  
 4. **[プラットフォーム]** で、**[プラットフォームの追加]** を選択します。
 5. **[ネイティブ アプリケーション]** を選択します。
-6. **[ネイティブ アプリケーション]** プラットフォームを追加したときに作成されたアプリケーション ID の値とカスタム リダイレクト URI の値 (**[ネイティブ アプリケーション]** ヘッダーの下) をコピーします。 この URI は、お客様のアプリケーション ID の値が含まれており、次の形式である必要があります。`msal<Application Id>://auth` サンプル アプリにこれらの値を入力する必要があります。
+6. **[ネイティブ アプリケーション]** プラットフォームを追加したときに作成されたアプリケーション ID の値とカスタム リダイレクト URI の値 (**[ネイティブ アプリケーション]** ヘッダーの下) をコピーします。この URI は、お客様のアプリケーション ID の値が含まれており、次の形式である必要があります。`msal<Application Id>://auth` サンプル アプリにこれらの値を入力する必要があります。
 
     アプリ ID は、アプリの一意識別子です。
 
@@ -73,13 +73,13 @@ Android プロジェクトを実行する場合は、[Visual Studio Emulator for
 
     ![](/readme-images/appId.png "Client ID value in App.cs file")
 
-3. UserDetailsClient.iOS\info.plist ファイルをテキスト エディターで開きます。 残念ながらこのファイルは Visual Studio では編集できません。 `<string>msalENTER_YOUR_CLIENT_ID</string>` 要素を `CFBundleURLSchemes` キーの下に配置します。
+3. UserDetailsClient.iOS\info.plist ファイルをテキスト エディターで開きます。残念ながらこのファイルは Visual Studio では編集できません。`<string>msalENTER_YOUR_CLIENT_ID</string>` 要素を `CFBundleURLSchemes` キーの下に配置します。
 
-4. `ENTER_YOUR_CLIENT_ID` を、アプリの登録時に取得したアプリケーション ID の値と置き換えます。 アプリケーション ID の前に `msal` を保持してください。 結果の文字列値は、次のようになります: `<string>msal<application id></string>`。
+4. `ENTER_YOUR_CLIENT_ID` を、アプリの登録時に取得したアプリケーション ID の値と置き換えます。アプリケーション ID の前に `msal` を保持してください。結果の文字列値は、次のようになります: `<string>msal<application id></string>`。
 
-5. UserDetailsClient.Droid\Properties\AndroidManifest.xml ファイルを開きます。 次の要素を検索します: `<data android:scheme="msalENTER_YOUR_CLIENT_ID" android:host="auth" />`。
+5. XamarinConnect.Droid\Properties\AndroidManifest.xml ファイルを開きます。次の要素を検索します: `<data android:scheme="msalENTER_YOUR_CLIENT_ID" android:host="auth" />`。
 
-6. `ENTER_YOUR_CLIENT_ID` を、アプリの登録時に取得したアプリケーション ID の値と置き換えます。 アプリケーション ID の前に `msal` を保持してください。 結果の文字列値は、次のようになります: `<data android:scheme="msal<application id>" android:host="auth" />`。
+6. `ENTER_YOUR_CLIENT_ID` を、アプリの登録時に取得したアプリケーション ID の値と置き換えます。アプリケーション ID の前に `msal` を保持してください。結果の文字列値は、次のようになります: `<data android:scheme="msal<application id>" android:host="auth" />`。
 
 7. 実行するプロジェクトを選びます。ユニバーサル Windows プラットフォームのオプションを選択すると、ローカル コンピューターでサンプルを実行できます。iOS プロジェクトを実行する場合は、[Xamarin ツールがインストールされた Mac](https://developer.xamarin.com/guides/ios/getting_started/installation/windows/connecting-to-mac/) に接続する必要があります。(また、このソリューションを Mac 上の Xamarin Studio で開いて、そこからサンプルを直接実行することもできます。)Android プロジェクトを実行する場合は、[Visual Studio Emulator for Android](https://www.visualstudio.com/features/msft-android-emulator-vs.aspx) を使用できます。 
 

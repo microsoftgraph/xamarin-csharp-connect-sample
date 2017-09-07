@@ -77,7 +77,7 @@ Sie können den [Visual Studio-Emulator für Android](https://www.visualstudio.c
 
 4. Ersetzen Sie `ENTER_YOUR_CLIENT_ID` durch den Wert der Anwendungs-ID, die Sie beim Registrieren der App erhalten haben. Sie müssen `msal` unbedingt vor der Anwendungs-ID beibehalten. Der resultierende Zeichenfolgenwert sollte wie folgt aussehen: `<string>msal<application id></string>`.
 
-5. Öffnen Sie die Datei "UserDetailsClient.Droid\Properties\AndroidManifest.xml". Suchen Sie das folgende Element: `<data android:scheme="msalENTER_YOUR_CLIENT_ID" android:host="auth" />`.
+5. Öffnen Sie die Datei „XamarinConnect.Droid\Properties\AndroidManifest.xml“. Suchen Sie das folgende Element: `<data android:scheme="msalENTER_YOUR_CLIENT_ID" android:host="auth" />`.
 
 6. Ersetzen Sie `ENTER_YOUR_CLIENT_ID` durch den Wert der Anwendungs-ID, die Sie beim Registrieren der App erhalten haben. Sie müssen `msal` unbedingt vor der Anwendungs-ID beibehalten. Der resultierende Zeichenfolgenwert sollte wie folgt aussehen: `<data android:scheme="msal<application id>" android:host="auth" />`.
 

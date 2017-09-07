@@ -55,7 +55,7 @@ Você pode usar o [Emulador do Visual Studio para Android](https://www.visualstu
 5. Escolha **Aplicativo Nativo**.
 6. Copie o valor da ID do aplicativo e o valor do URI de redirecionamento personalizado (abaixo do cabeçalho do **Aplicativo Nativo**) criados quando você adicionou a plataforma do **Aplicativo Nativo**. Este URI deve conter o valor da ID do aplicativo e estar neste formato: `msal<Application Id>://auth` Você precisará inserir esses valores no aplicativo de exemplo.
 
-    A ID de aplicativo é o identificador exclusivo do aplicativo.
+    Essa ID de aplicativo é o identificador exclusivo do aplicativo.
 
 7. Selecione **Salvar**.
 
@@ -75,11 +75,11 @@ Você pode usar o [Emulador do Visual Studio para Android](https://www.visualstu
 
 3. Abra o arquivo UserDetailsClient.iOS\info.plist em um editor de texto. Não é possível abri-lo no Visual Studio. Localize o elemento `<string>msalENTER_YOUR_CLIENT_ID</string>` abaixo da chave `CFBundleURLSchemes`.
 
-4. Substitua `ENTER_YOUR_CLIENT_ID` com o valor da ID do aplicativo obtido quando você registrou o aplicativo. Assegure-se de reter `msal` antes da ID do aplicativo. O valor da cadeia de caracteres resultante deve ter esta aparência: `<string>msal<application id></string>`.
+4. Substitua `ENTER_YOUR_CLIENT_ID` pelo valor da ID do aplicativo obtido quando você registrou o aplicativo. Mantenha `msal` antes da ID do aplicativo. O valor da cadeia de caracteres resultante deve ser semelhante a: `<string>msal<application id></string>`.
 
-5. Abra o arquivo UserDetailsClient.Droid\Properties\AndroidManifest.xml. Localize este elemento: `<data android:scheme="msalENTER_YOUR_CLIENT_ID" android:host="auth" />`.
+5. Abra o arquivo XamarinConnect.Droid\Properties\AndroidManifest.xml. Localize este elemento: `<data android:scheme="msalENTER_YOUR_CLIENT_ID" android:host="auth" />`.
 
-6. Substitua `ENTER_YOUR_CLIENT_ID` com o valor da ID do aplicativo obtido quando você registrou o aplicativo. Assegure-se de reter `msal` antes da ID do aplicativo. O valor da cadeia de caracteres resultante deve ter esta aparência: `<data android:scheme="msal<application id>" android:host="auth" />`.
+6. Substitua `ENTER_YOUR_CLIENT_ID` pelo valor da ID do aplicativo obtido quando você registrou o aplicativo. Mantenha `msal` antes da ID do aplicativo. O valor da cadeia de caracteres resultante deve ser semelhante a: `<data android:scheme="msal<application id>" android:host="auth" />`.
 
 7. Escolha o projeto que você deseja excluir. Se escolher a opção Plataforma Universal do Windows, você poderá executar o exemplo no computador local. Se quiser executar o projeto do iOS, você precisará se conectar a um [Mac que tenha as ferramentas Xamarin](https://developer.xamarin.com/guides/ios/getting_started/installation/windows/connecting-to-mac/) instaladas nele. (Você também pode abrir esta solução no Xamarin Studio em um Mac e executar o exemplo diretamente de lá). Você pode usar o [Emulador do Visual Studio para Android](https://www.visualstudio.com/features/msft-android-emulator-vs.aspx) se quiser executar o projeto do Android. 
 
