@@ -20,21 +20,19 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-
 	<key>CFBundleURLTypes</key>
-   <array>
-     <dict>
-       <key>CFBundleTypeRole</key>
-       <string>Editor</string>
-       <key>CFBundleURLName</key>
-       <string>com.yourcompany.UserDetailsClient</string>
-       <key>CFBundleURLSchemes</key>
-       <array>
-         <string>msalENTER_YOUR_CLIENT_ID</string>
-       </array>
-     </dict>
-   </array>
-
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>com.yourcompany.UserDetailsClient</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>msalENTER_YOUR_CLIENT_ID</string>
+			</array>
+		</dict>
+	</array>
 	<key>MinimumOSVersion</key>
 	<string>6.0</string>
 	<key>CFBundleDisplayName</key>

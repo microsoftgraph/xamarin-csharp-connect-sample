@@ -13,14 +13,14 @@ namespace XamarinConnect
 {
     public class App : Application
     {
-        public static PublicClientApplication IdentityClientApp = null;
+        public static PublicClientApplication IdentityClientApp;
         public static string ClientID = "ENTER_YOUR_CLIENT_ID";
         public static string RedirectUri = "msal" + ClientID + "://auth";
         public static string[] Scopes = { "User.Read", "Mail.Send", "Files.ReadWrite" };
         public static string Username = string.Empty;
         public static string UserEmail = string.Empty;
 
-        public static UIParent UiParent = null;
+        public static UIParent UiParent;
         public App()
         {
             IdentityClientApp = new PublicClientApplication(ClientID);
